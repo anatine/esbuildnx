@@ -1,0 +1,79 @@
+{
+  "version": 2,
+  "projects": {
+    "esbuildnx": {
+      "root": "packages/esbuildnx",
+      "sourceRoot": "packages/esbuildnx/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/esbuildnx/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/packages/esbuildnx"
+          ],
+          "options": {
+            "jestConfig": "packages/esbuildnx/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/packages/esbuildnx",
+            "tsConfig": "packages/esbuildnx/tsconfig.lib.json",
+            "packageJson": "packages/esbuildnx/package.json",
+            "main": "packages/esbuildnx/src/index.ts",
+            "assets": [
+              "packages/esbuildnx/*.md",
+              {
+                "input": "./packages/esbuildnx/src",
+                "glob": "**/*.!(ts)",
+                "output": "./src"
+              },
+              {
+                "input": "./packages/esbuildnx",
+                "glob": "generators.json",
+                "output": "."
+              },
+              {
+                "input": "./packages/esbuildnx",
+                "glob": "executors.json",
+                "output": "."
+              }
+            ]
+          }
+        }
+      }
+    },
+    "esbuildnx-e2e": {
+      "projectType": "application",
+      "root": "e2e/esbuildnx-e2e",
+      "sourceRoot": "e2e/esbuildnx-e2e/src",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/nx-plugin:e2e",
+          "options": {
+            "target": "esbuildnx:build",
+            "npmPackageName": "@anatine/esbuildnx",
+            "pluginOutputPath": "dist/packages/esbuildnx",
+            "jestConfig": "e2e/esbuildnx-e2e/jest.config.js"
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/workspace"
+  }
+}
