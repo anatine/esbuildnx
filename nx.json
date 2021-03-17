@@ -17,7 +17,8 @@
   },
   "projects": {
     "esbuildnx": { "tags": [] },
-    "esbuildnx-e2e": { "tags": [], "implicitDependencies": ["esbuildnx"] }
+    "esbuildnx-e2e": { "tags": [], "implicitDependencies": ["esbuildnx"] },
+    "esbuild-decorators": { "tags": [] }
   },
   "workspaceLayout": { "appsDir": "e2e", "libsDir": "packages" }
 }

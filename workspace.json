@@ -71,6 +71,46 @@
           }
         }
       }
+    },
+    "esbuild-decorators": {
+      "root": "packages/esbuild-decorators",
+      "sourceRoot": "packages/esbuild-decorators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/esbuild-decorators/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/packages/esbuild-decorators"
+          ],
+          "options": {
+            "jestConfig": "packages/esbuild-decorators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/packages/esbuild-decorators",
+            "tsConfig": "packages/esbuild-decorators/tsconfig.lib.json",
+            "packageJson": "packages/esbuild-decorators/package.json",
+            "main": "packages/esbuild-decorators/src/index.ts",
+            "assets": [
+              "packages/esbuild-decorators/*.md"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

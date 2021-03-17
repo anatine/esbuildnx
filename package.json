@@ -25,7 +25,6 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help"
   },
-  "private": true,
   "devDependencies": {
     "@nrwl/cli": "11.5.1",
     "@nrwl/devkit": "11.5.1",

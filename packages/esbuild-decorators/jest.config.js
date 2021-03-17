@@ -1,14 +1,15 @@
 module.exports = {
-  displayName: 'esbuildnx',
+  displayName: 'esbuild-decorators',
   preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
     },
   },
+  testEnvironment: 'node',
   transform: {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/packages/esbuildnx',
+  coverageDirectory: '../../coverage/packages/esbuild-decorators',
 };
