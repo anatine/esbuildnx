@@ -38,38 +38,18 @@ describe(`plugin tests`, () => {
   });
 
   test(`Can transpile successfully on various test cases`, async () => {
-    const result1 = await mockService.simulate({
-      path: `${__dirname}/mock-project/app/src/copy-1.ts.test`,
-    });
-    const result2 = await mockService.simulate({
-      path: `${__dirname}/mock-project/app/src/copy-2.ts.test`,
-    });
-    const result3 = await mockService.simulate({
-      path: `${__dirname}/mock-project/app/src/copy-3.ts.test`,
-    });
-    const result4 = await mockService.simulate({
-      path: `${__dirname}/mock-project/app/src/copy-4.ts.test`,
-    });
-    const result5 = await mockService.simulate({
-      path: `${__dirname}/mock-project/app/src/copy-5.ts.test`,
-    });
-    const result6 = await mockService.simulate({
-      path: `${__dirname}/mock-project/app/src/copy-6.ts.test`,
-    });
-    const result7 = await mockService.simulate({
-      path: `${__dirname}/mock-project/app/src/copy-7.ts.test`,
-    });
-    const result8 = await mockService.simulate({
-      path: `${__dirname}/mock-project/app/src/copy-8.ts.test`,
-    });
+    const TOTAL_TESTS = 10;
 
-    expect(result1).toBeDefined();
-    expect(result2).toBeDefined();
-    expect(result3).toBeDefined();
-    expect(result4).toBeDefined();
-    expect(result5).toBeDefined();
-    expect(result6).toBeDefined();
-    expect(result7).toBeDefined();
-    expect(result8).toBeDefined();
+    const results = await Promise.all(
+      [...new Array(TOTAL_TESTS - 1)].map((_, i) =>
+        mockService.simulate({
+          path: `${__dirname}/mock-project/app/src/copy-${i + 1}.ts.test`, //mixed-example
+        })
+      )
+    );
+
+    results.forEach((result) => {
+      expect(result).toBeDefined();
+    });
   });
 });

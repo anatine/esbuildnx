@@ -67,14 +67,21 @@ Run your builder.
 There is no doubt that this will affect the performance of esbuild.
 When emitDecoratorMetadata is set, every file will have to be loaded into this plugin.
 
-This simple plugin hangs on the regex string: `/((?<![(\s]\s*['"])@\w*[\w\d]\s*(?![;])[((?=\s)])/`
+This simple plugin hangs on the regex string: `/((?<![(\s]\s*['"])@\w[.[\]\w\d]*\s*(?![;])[((?=\s)])/`
 
 Potentially esbuild could eventually do this regex search and expose positives via another plugin hook for transpiling.
 
 Issue here: https://github.com/evanw/esbuild/issues/991
 
 
+-----
+#### Decorator Match Testing
+
+Check out the [test](https://github.com/anatine/esbuildnx/tree/main/packages/esbuild-decorators/src/__tests__/mock-project/app/src) files
+and submit any issues or PRs if you see a pattern that should be covered.
+
+----
 #### Credits
 
 Thanks to [Thomas Schaaf](https://github.com/thomaschaaf) as this was his shared code that lead me here.
-[Original Source]{https://github.com/thomaschaaf/esbuild-plugin-tsc}
+[Original Source](https://github.com/thomaschaaf/esbuild-plugin-tsc)

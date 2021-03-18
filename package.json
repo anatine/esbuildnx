@@ -23,7 +23,8 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "ci:test:decorators": "nx test esbuild-decorators"
   },
   "devDependencies": {
     "@nrwl/cli": "11.5.1",
