@@ -24,7 +24,8 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "ci:test:decorators": "nx test esbuild-decorators"
+    "ci:test:decorators": "nx test esbuild-decorators",
+    "ci:build:decorators": "nx build esbuild-decorators"
   },
   "devDependencies": {
     "@nrwl/cli": "11.5.1",

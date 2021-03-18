@@ -1,5 +1,7 @@
 # esbuild-decorators
 
+![Testing/Build](https://github.com/anatine/esbuildnx/actions/workflows/esbuild-decorator.yml/badge.svg)
+
 ## Overview
 
 This is a plugin for [esbuild](https://esbuild.github.io/) to handle the tsconfig setting `"emitDecoratorMetadata": true,`
