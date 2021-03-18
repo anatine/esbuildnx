@@ -1,7 +1,7 @@
 # esbuild-decorators
 
 ![Testing/Build](https://github.com/anatine/esbuildnx/actions/workflows/esbuild-decorator.yml/badge.svg)
-
+[![Known Vulnerabilities](https://snyk.io/test/github/anatine/esbuildnx/badge.svg)](https://snyk.io/test/github/anatine/esbuildnx)
 ## Overview
 
 This is a plugin for [esbuild](https://esbuild.github.io/) to handle the tsconfig setting `"emitDecoratorMetadata": true,`

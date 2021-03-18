@@ -11,7 +11,7 @@ import {
 import * as stripComments from 'strip-comments';
 import { inspect } from 'util';
 
-export interface EsbuildPluginTscOptions {
+export interface EsbuildDecoratorsOptions {
   // If empty, uses tsconfig.json
   tsconfig?: string;
   // If empty, uses the current working directory
@@ -29,7 +29,7 @@ const theFinder = new RegExp(
 const findDecorators = (fileContent) =>
   theFinder.test(stripComments(fileContent));
 
-export const esbuildDecorators = (options: EsbuildPluginTscOptions = {}) => ({
+export const esbuildDecorators = (options: EsbuildDecoratorsOptions = {}) => ({
   name: 'tsc',
   setup(build) {
     const cwd = options.cwd || process.cwd();
