@@ -1,1 +1,4 @@
-export * from './lib/esbuild-decorators';
+export {
+  EsbuildDecoratorsOptions,
+  esbuildDecorators,
+} from './lib/esbuild-decorators';

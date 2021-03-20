@@ -1,6 +1,6 @@
 {
   "name": "@anatine/esbuild-decorators",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "Esbuild plugin for Nx to handle emitDecoratorMetadata",
   "repository": {
     "type": "git",
@@ -36,6 +36,6 @@
     "strip-comments": "^2.0.1"
   },
   "peerDependencies": {
-    "esbuild": "^0.9.3"
+    "esbuild": "^0.9.5"
   }
 }
