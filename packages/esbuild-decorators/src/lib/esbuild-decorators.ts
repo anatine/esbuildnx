@@ -69,7 +69,9 @@ export const esbuildDecorators = (options: EsbuildDecoratorsOptions = {}) => ({
         return;
       }
 
-      const program = transpileModule(ts, parsedTsConfig);
+      const program = transpileModule(ts, {
+        compilerOptions: parsedTsConfig.options,
+      });
       return { contents: program.outputText };
     });
   },
