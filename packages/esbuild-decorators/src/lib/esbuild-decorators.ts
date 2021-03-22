@@ -42,10 +42,10 @@ export const esbuildDecorators = (options: EsbuildDecoratorsOptions = {}) => ({
     build.onLoad({ filter: tsx ? /\.tsx?$/ : /\.ts$/ }, async (args) => {
       if (!parsedTsConfig) {
         parsedTsConfig = parseTsConfig(tsconfigPath, cwd);
-        if (parsedTsConfig.sourcemap) {
-          parsedTsConfig.sourcemap = false;
-          parsedTsConfig.inlineSources = true;
-          parsedTsConfig.inlineSourceMap = true;
+        if (parsedTsConfig.options.sourcemap) {
+          parsedTsConfig.options.sourcemap = false;
+          parsedTsConfig.options.inlineSources = true;
+          parsedTsConfig.options.inlineSourceMap = true;
         }
       }
 
