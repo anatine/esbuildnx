@@ -1,3 +1,12 @@
+## 0.2.1 (2021-03-24)
+
+
+### Documentation
+
+* **release:** Adding reference to strip-comments source
+
+
+
 # 0.2.0 (2021-03-24)
 
 
