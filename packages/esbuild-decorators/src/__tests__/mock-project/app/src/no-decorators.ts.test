@@ -24,6 +24,22 @@ const makingThisHard = require('@please-install/prettier');
 Just make sure these are stripped out properly.
 */
 
+/**
+* Just another comment structure to test with @decorators
+*
+**/
+
+const shouldNotCatchEmail = "something@example.com"
+
+const thisIsATrickyCase = 'A string where we talk about @decorator value'
+
+const thisIsEvenWorse = `
+
+@Fail_If_Detected()
+methodInString()
+
+`
+
 export class AppController {
   constructor(private readonly appService: AppService) {}
 }

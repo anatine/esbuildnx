@@ -1,0 +1,40 @@
+THIS_
+
+// Of course this has no @Decorators()
+
+SHOULD_['This is a string used as a key']
+
+/*
+ * None of this should catch a @element in a comment.
+ */
+
+ ALL_: `This could be a string assignment to an object`
+
+/*
+@this comment is even more tricky
+Just make sure these are stripped out properly.
+*/
+
+BE_
+
+/**
+* Just another comment structure to test with @decorators
+* I wonder, will "Quotes" be an issue here?
+**/
+
+WHAT'S_  // A comment after a line of text
+
+  "something@example.com it's a problem and what if I open a quote like /* in this string?"
+
+LEFT_// A sloppy comment right up against the text
+
+OF_ 'A string where we talk about @decorator value'   THE_
+
+` This is a multi-
+line string within "back quotes"
+and should be removed as well
+`ENTIRE_
+
+FILE "The End /*  no really, it is the end"
+
+" // This is the end of that story "

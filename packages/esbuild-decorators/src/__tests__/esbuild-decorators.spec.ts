@@ -1,21 +1,24 @@
 import { esbuildDecorators } from '../lib/esbuild-decorators';
 
 describe(`plugin tests`, () => {
-  const mockBuilder = () => {
+  const mockBuilder = (options) => {
     let _filter;
     let _fn;
     const onLoad = (filter, fn) => {
       _filter = filter;
       _fn = fn;
     };
+    const initialOptions: { tsconfig?: string } = options;
     const simulate = async (args) => _fn(args);
-    return { onLoad, simulate };
+    return { onLoad, simulate, initialOptions };
   };
 
   let mockService;
 
   beforeAll(() => {
-    mockService = mockBuilder();
+    mockService = mockBuilder({
+      tsconfig: `wrong/config/file/for/testing/just/to/make/sure/override/works`,
+    });
     const plugin = esbuildDecorators({
       tsconfig: `${__dirname}/mock-project/app/tsconfig.app.json`,
     });
