@@ -87,3 +87,6 @@ and submit any issues or PRs if you see a pattern that should be covered.
 
 Thanks to [Thomas Schaaf](https://github.com/thomaschaaf) as this was his shared code that lead me here.
 [Original Source](https://github.com/thomaschaaf/esbuild-plugin-tsc)
+
+Thanks to the npm package [strip-comments](https://www.npmjs.com/package/strip-comments) 
+that was stripped down to cover only typescript comments and string removals
