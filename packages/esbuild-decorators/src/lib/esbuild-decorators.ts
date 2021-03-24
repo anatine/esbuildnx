@@ -8,11 +8,11 @@ import {
   parseConfigFileTextToJson,
   parseJsonConfigFileContent,
 } from 'typescript';
-import * as stripComments from 'strip-comments';
 import { inspect } from 'util';
+import { strip } from './strip-it';
 
 export interface EsbuildDecoratorsOptions {
-  // If empty, uses tsconfig.json
+  // If empty, uses esbuild's tsconfig.json and falls back to the tsconfig.json in the $cwd
   tsconfig?: string;
   // If empty, uses the current working directory
   cwd?: string;
@@ -26,14 +26,16 @@ const theFinder = new RegExp(
   /((?<![(\s]\s*['"])@\w[.[\]\w\d]*\s*(?![;])[((?=\s)])/
 );
 
-const findDecorators = (fileContent) =>
-  theFinder.test(stripComments(fileContent));
+const findDecorators = (fileContent) => theFinder.test(strip(fileContent));
 
 export const esbuildDecorators = (options: EsbuildDecoratorsOptions = {}) => ({
   name: 'tsc',
   setup(build) {
     const cwd = options.cwd || process.cwd();
-    const tsconfigPath = options.tsconfig ?? join(cwd, './tsconfig.json');
+    const tsconfigPath =
+      options.tsconfig ??
+      build.initialOptions?.tsconfig ??
+      join(cwd, './tsconfig.json');
     const forceTsc = options.force ?? false;
     const tsx = options.tsx ?? true;
 
