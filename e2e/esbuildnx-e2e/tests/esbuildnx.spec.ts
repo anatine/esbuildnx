@@ -15,7 +15,7 @@ describe('esbuildnx e2e', () => {
     const plugin = 'in-progress';
     // const plugin = uniq('esbuildnx');
 
-    ensureNxProject('@anatine/esbuildnx', 'dist/packages/esbuildnx');
+    // ensureNxProject('@anatine/esbuildnx', 'dist/packages/esbuildnx');
     //
     // await runNxCommandAsync(`generate @nrwl/nest:application ${plugin}`);
 
@@ -24,12 +24,18 @@ describe('esbuildnx e2e', () => {
     // console.log('runPackageManagerInstall ');
     // runPackageManagerInstall();
 
-    // console.log(`Starting run command in: ${cwd}`);
-    // const result = await runNxCommandAsync(
-    //   `build ${plugin} --skip-nx-cache`
-    // ).catch((err) => done(err));
-    // console.log(result.stdout);
-    // if (result.stderr) console.error(result.stderr);
+    console.log(`Starting run command in: ${cwd}`);
+    const result = await runNxCommandAsync(
+      `build ${plugin} --skip-nx-cache`
+    ).catch((err) => {
+      console.warn(`An error was found in the build`);
+      done(err);
+    });
+
+    if (result) {
+      console.log(result.stdout);
+      if (result.stderr) console.error(result.stderr);
+    }
 
     // try {
     //   const result = execSync(`nx run ${plugin}:build --skip-nx-cache`, {

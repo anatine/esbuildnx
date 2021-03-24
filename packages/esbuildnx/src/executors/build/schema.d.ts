@@ -1,9 +1,10 @@
 import type { InitializeOptions } from 'esbuild';
-import type { EsbuildDecoratorsOptions } from '@anatine/esbuild-decorators';
+import { FileReplacement } from '../../utils/normalize-options';
+// import type { EsbuildDecoratorsOptions } from '@anatine/esbuild-decorators';
 
 export interface BuildExecutorSchema {
   esbuild?: Partial<InitializeOptions>;
-  decoratorOptions?: Partial<EsbuildDecoratorsOptions>;
+  decoratorOptions?: Partial<any>;
   skipTypeCheck?: boolean;
   tsx?: boolean;
   //
@@ -20,4 +21,9 @@ export interface BuildExecutorSchema {
   projectRoot?: string;
 
   buildLibsFromSource?: boolean;
+
+  fileReplacements: FileReplacement[];
+  assets?: any[];
+
+  externalDependencies: 'all' | 'none' | string[];
 }

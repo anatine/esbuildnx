@@ -1,15 +1,16 @@
+import type { Plugin } from 'esbuild';
 import { readFile } from 'fs/promises';
-import { dirname, join } from 'path';
+import { join, dirname } from 'path';
 import {
-  findConfigFile,
-  parseConfigFileTextToJson,
   ParsedCommandLine,
-  parseJsonConfigFileContent,
-  sys,
   transpileModule,
+  findConfigFile,
+  sys,
+  parseConfigFileTextToJson,
+  parseJsonConfigFileContent,
 } from 'typescript';
+import { inspect } from 'util';
 import { strip } from './strip-it';
-import { printDiagnostics } from './print-diagnostics';
 
 export interface EsbuildDecoratorsOptions {
   // If empty, uses esbuild's tsconfig.json and falls back to the tsconfig.json in the $cwd
@@ -28,13 +29,15 @@ const theFinder = new RegExp(
 
 const findDecorators = (fileContent) => theFinder.test(strip(fileContent));
 
-export const esbuildDecorators = (options: EsbuildDecoratorsOptions = {}) => ({
+export const esbuildDecorators = (
+  options: EsbuildDecoratorsOptions = {}
+): Plugin => ({
   name: 'tsc',
   setup(build) {
     const cwd = options.cwd || process.cwd();
     const tsconfigPath =
-      options.tsconfig ??
-      build.initialOptions?.tsconfig ??
+      options.tsconfig ||
+      build.initialOptions?.tsconfig ||
       join(cwd, './tsconfig.json');
     const forceTsc = options.force ?? false;
     const tsx = options.tsx ?? true;
@@ -108,4 +111,8 @@ function parseTsConfig(tsconfig, cwd = process.cwd()): ParsedCommandLine {
   if (parsedTsConfig.errors[0]) printDiagnostics(parsedTsConfig.errors);
 
   return parsedTsConfig;
+}
+
+function printDiagnostics(...args) {
+  console.log(inspect(args, false, 10, true));
 }
