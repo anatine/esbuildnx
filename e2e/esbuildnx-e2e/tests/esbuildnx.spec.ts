@@ -2,6 +2,7 @@ import {
   ensureNxProject,
   runNxCommandAsync,
   runPackageManagerInstall,
+  uniq,
 } from '@nrwl/nx-plugin/testing';
 import {} from '@nrwl/workspace';
 import { inspect } from 'util';
@@ -19,23 +20,27 @@ describe('esbuildnx e2e', () => {
     //
     // await runNxCommandAsync(`generate @nrwl/nest:application ${plugin}`);
 
-    // await runNxCommandAsync(`generate @anatine/esbuildnx:esbuildnx ${plugin}`);
+    const generate = await runNxCommandAsync(
+      `generate @anatine/esbuildnx:setup ${plugin}`
+    );
+    console.log(generate.stdout);
+    if (generate.stderr) console.error(generate.stderr);
 
     // console.log('runPackageManagerInstall ');
     // runPackageManagerInstall();
 
-    console.log(`Starting run command in: ${cwd}`);
-    const result = await runNxCommandAsync(
-      `build ${plugin} --skip-nx-cache`
-    ).catch((err) => {
-      console.warn(`An error was found in the build`);
-      done(err);
-    });
-
-    if (result) {
-      console.log(result.stdout);
-      if (result.stderr) console.error(result.stderr);
-    }
+    // console.log(`Starting run command in: ${cwd}`);
+    // const result = await runNxCommandAsync(
+    //   `build ${plugin} --skip-nx-cache`
+    // ).catch((err) => {
+    //   console.warn(`An error was found in the build`);
+    //   done(err);
+    // });
+    //
+    // if (result) {
+    //   console.log(result.stdout);
+    //   if (result.stderr) console.error(result.stderr);
+    // }
 
     // try {
     //   const result = execSync(`nx run ${plugin}:build --skip-nx-cache`, {

@@ -3,10 +3,10 @@
   "name": "esbuildnx",
   "version": "0.0.1",
   "generators": {
-    "esbuildnx": {
-      "factory": "./src/generators/esbuildnx/generator",
-      "schema": "./src/generators/esbuildnx/schema.json",
-      "description": "esbuildnx generator"
+    "setup": {
+      "factory": "./src/generators/setup/setup",
+      "schema": "./src/generators/setup/schema.json",
+      "description": "esbuildnx setup on existing @nrwl/node project"
     }
   }
 }

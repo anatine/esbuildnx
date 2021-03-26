@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "id": "esuildnx-setup",
+  "title": "Esbuild Setup",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use?"
+    },
+    "overwrite": {
+      "type": "boolean",
+      "default": false,
+      "description": "Will replace the build command, otherwise will add an esbuild command."
+    },
+    "defaultNestExternals": {
+      "type": "boolean",
+      "default": false,
+      "description": "Will fill in necessary externalized packages for a starting NestJS app."
+    }
+  },
+  "required": ["name"]
+}

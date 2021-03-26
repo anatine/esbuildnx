@@ -2,9 +2,16 @@
   "$schema": "http://json-schema.org/schema",
   "executors": {
     "build": {
-      "implementation": "./src/executors/build/executor",
+      "implementation": "./src/executors/build/build.impl",
       "schema": "./src/executors/build/schema.json",
-      "description": "build executor"
+      "description": "Build a Node application with esbuild"
+    }
+  },
+  "builders": {
+    "build": {
+      "implementation": "./src/executors/build/compat",
+      "schema": "./src/executors/build/schema.json",
+      "description": "Build a Node application with esbuild"
     }
   }
 }

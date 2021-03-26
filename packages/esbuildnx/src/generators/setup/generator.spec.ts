@@ -2,11 +2,11 @@ import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import { Tree, readProjectConfiguration } from '@nrwl/devkit';
 
 import generator from './generator';
-import { EsbuildnxGeneratorSchema } from './schema';
+import { Schema } from './schema';
 
 describe('esbuildnx generator', () => {
   let appTree: Tree;
-  const options: EsbuildnxGeneratorSchema = { name: 'test' };
+  const options: Schema = { name: 'test' };
 
   beforeEach(() => {
     appTree = createTreeWithEmptyWorkspace();
