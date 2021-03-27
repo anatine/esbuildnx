@@ -1,9 +1,14 @@
-## 0.2.2 (2021-03-26)
+## 0.2.5 (2021-03-26)
+
+### Updates
+* **release:** Updating esbuild  ^0.10.1  →  ^0.10.2
+
+## 0.2.4 (2021-03-26)
 
 ### Updates
 * **release:** Updating esbuild  ^0.10.0  →  ^0.10.1
 
-## 0.2.2 (2021-03-25)
+## 0.2.3 (2021-03-25)
 
 ### Updates
 * **release:** Updating esbuild  ^0.9.7  →  ^0.10.0
