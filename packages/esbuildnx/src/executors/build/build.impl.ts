@@ -19,8 +19,6 @@ import { buffer, delay, filter, map, share } from 'rxjs/operators';
 import { eachValueFrom } from 'rxjs-for-await';
 import { format } from 'date-fns';
 
-export const OUT_FILENAME = 'index.js';
-
 export function buildExecutor(
   rawOptions: BuildExecutorSchema,
   context: ExecutorContext
@@ -52,7 +50,7 @@ export function buildExecutor(
     root
   );
 
-  const outfile = `${options.outputPath}/${OUT_FILENAME}`;
+  const outdir = `${options.outputPath}`;
 
   const watchDir = `${options.root}/${options.sourceRoot}`;
 
@@ -76,7 +74,8 @@ export function buildExecutor(
     // },
     tsconfig: options.tsConfig,
     entryPoints: [options.main],
-    outfile,
+    outdir,
+    // outfile,
     ...esbuildConfig,
     incremental: options.watch || false,
   };
@@ -91,7 +90,7 @@ export function buildExecutor(
 
       // const warnings: string[] = [];
 
-      if (buildResult?.warnings) {
+      if (buildResult?.warnings.length > 0) {
         let warningMessage = yellow(`${prefix} - Warnings:`);
         buildResult?.warnings.forEach((warning) => {
           warningMessage += `\n  ${yellow(warning.location.file)}(${
@@ -107,9 +106,9 @@ export function buildExecutor(
       if (buildFailure) {
         // console.log(red(`\nEsbuild Error ${count}`));
         // console.error(stats.buildFailure);
-        message += red(`\nEsbuild Error ${count}`);
+        message += red(`Esbuild Error ${count}`);
         message += buildFailure;
-      } else if (buildResult?.warnings) {
+      } else if (buildResult?.warnings.length > 0) {
         message += green(
           `${prefix} - Build finished with ${yellow(
             buildResult?.warnings.length
