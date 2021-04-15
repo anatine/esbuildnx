@@ -25,7 +25,7 @@ describe('WORKING', () => {
   const esbuildnxDecoratorsPlugin = `${process.cwd()}/dist/packages/esbuild-decorators`;
 
   beforeAll(() => {
-    ensureNxProject('@anatine/esbuildnx', 'dist/packages/esbuildnx');
+    // ensureNxProject('@anatine/esbuildnx', 'dist/packages/esbuildnx');
     ensureDirSync(esbuildnxPluginModules);
     ensureSymlinkSync(
       esbuildnxDecoratorsPlugin,
@@ -34,24 +34,24 @@ describe('WORKING', () => {
   });
 
   afterAll(() => {
-    removeSync(esbuildnxPluginModules);
+    // removeSync(esbuildnxPluginModules);
   });
 
   it('should create esbuildnx', async () => {
-    // const plugin = 'testing';
-    const plugin = uniq('esbuildnx');
+    const plugin = 'testing';
+    // const plugin = uniq('esbuildnx');
 
     // expect(plugin).toBeDefined();
     // return;
 
-    await runNxCommandAsync(`generate @nrwl/node:application ${plugin}`);
+    // await runNxCommandAsync(`generate @nrwl/node:application ${plugin}`);
 
     // Setup the node project
     await runNxCommandAsync(
       `generate @anatine/esbuildnx:setup ${plugin} --overwrite`
     );
     // Run the builder
-    const result = await runNxCommandAsync(`build ${plugin}`);
+    const result = await runNxCommandAsync(`build ${plugin} --skip-nx-cache`);
 
     if (result) {
       console.log(result.stdout);
