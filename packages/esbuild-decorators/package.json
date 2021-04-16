@@ -8,12 +8,8 @@
   },
   "keywords": [
     "Esbuild",
-    "Monorepo",
-    "Node",
-    "Nest",
-    "Jest",
-    "Cypress",
-    "CLI"
+    "decorators",
+    "typescript"
   ],
   "main": "index.js",
   "types": "index.d.ts",

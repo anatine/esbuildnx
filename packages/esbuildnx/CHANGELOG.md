@@ -1,3 +1,8 @@
+## 0.0.2 (2021-04-15)
+
+### Update
+* Updating documentation
+
 ## 0.0.1 (2021-04-15)
 
 ### Features

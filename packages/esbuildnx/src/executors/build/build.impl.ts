@@ -14,7 +14,6 @@ import { eachValueFrom } from 'rxjs-for-await';
 import { format } from 'date-fns';
 // import { exportDiagnostics } from '../../utils/print-diagnostics';
 import { inspect } from 'util';
-import { createProjectGraph } from '@nrwl/workspace/src/core/project-graph';
 import { copyPackages, getPackagesToCopy } from '../../utils/walk-packages';
 
 export function buildExecutor(
@@ -52,10 +51,6 @@ export function buildExecutor(
     sourceRoot,
     root
   );
-
-  const workspace = readJsonFile(`${process.cwd()}/workspace.json`);
-  const nxJson = readJsonFile(`${process.cwd()}/nx.json`);
-  const projGraph = createProjectGraph(workspace, nxJson);
 
   const outdir = `${options.outputPath}`;
 
@@ -211,6 +206,21 @@ export function buildExecutor(
   //     10
   //   )}`
   // );
+
+  if (options.watch) {
+    return eachValueFrom(
+      zip(buildSubscriber, tscSubscriber).pipe(
+        map(([buildResults, tscResults]) => {
+          // console.log('\x1Bc');
+          console.log(tscResults.message);
+          console.log(buildResults.message);
+          return {
+            success: buildResults?.success && tscResults?.success,
+          };
+        })
+      )
+    );
+  }
 
   return eachValueFrom(
     zip(buildSubscriber, tscSubscriber, packageCopySubscriber).pipe(

@@ -1,9 +1,11 @@
 {
   "name": "@anatine/esbuildnx",
-  "version": "0.0.1",
-  "main": "src/index.js",
+  "version": "0.0.2",
   "description": "Esbuild plugin for Nx",
+  "main": "index.js",
+  "types": "index.d.ts",
   "license": "MIT",
+  "public": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anatine/esbuildnx"
