@@ -1,4 +1,5 @@
-import { readJson, readdir, existsSync, copy, emptyDir } from 'fs-extra';
+import { readJson, readdir, existsSync, ensureDir } from 'fs-extra';
+import copy from 'recursive-copy';
 
 export interface PackageJsonDeps {
   dependencies?: Record<string, string>;
@@ -47,16 +48,30 @@ export async function getPackagesToCopy(
     for (let i = 0; i < allDeps.length - 1; i++) {
       const name = allDeps[i];
       const module = modules.get(name);
+
+      let alreadyExternal = false;
+
       if (module) {
-        module.external = module.external || external;
+        alreadyExternal = module.external;
+        module.external = alreadyExternal || external;
         module.path = [...module.path, packagePath];
         modules.set(name, module);
       } else {
         modules.set(name, { external, top, path: [packagePath] });
       }
 
-      if (existsSync(`${path}/${name}`)) {
-        await processPackage(`${path}/${name}`, external);
+      // Will only process a module in the package.json if it is at the top
+      //  and there is no instance in a sub directory of node_modules
+      //  Also, only runs if a package hasn't already been flagged for external but it should be
+      const subModule = rootDirectory + '/node_modules/' + name;
+      const embeddedModule = path + '/node_modules/' + name;
+      if (
+        !existsSync(embeddedModule) &&
+        existsSync(subModule) &&
+        !alreadyExternal &&
+        external
+      ) {
+        await processPackage(`${subModule}`, external);
       }
     }
   };
@@ -81,9 +96,9 @@ export async function getPackagesToCopy(
     await processPackage(`${cwd}/${item}`, data.external);
   }
 
-  const final: any[] = [];
+  const final: string[] = [];
   modules.forEach((value, key) => {
-    if (value.external && value.top) {
+    if (value.external) {
       final.push(key);
     }
   });
@@ -103,13 +118,14 @@ export async function copyPackages(
 
   if (modules.length === 0) return modules;
 
-  await emptyDir(`${destPath}/node_modules`);
+  await ensureDir(`${destPath}/node_modules`);
 
   for (let i = 0; i < modules.length - 1; i++) {
     const name = modules[i];
     await copy(
       `${projectRoot}/node_modules/${name}`,
-      `${destPath}/node_modules/${name}`
+      `${destPath}/node_modules/${name}`,
+      { overwrite: true }
     );
   }
 

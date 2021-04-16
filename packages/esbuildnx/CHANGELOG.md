@@ -1,3 +1,9 @@
+## 0.0.3 (2021-04-15)
+
+### Fix
+* Packages were not being fully walked through and copied well
+* Instead of deleting existing node_modules file in dist directory, just copy over what is there.
+
 ## 0.0.2 (2021-04-15)
 
 ### Update

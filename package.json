@@ -64,5 +64,9 @@
     "ts-node": "~9.1.1",
     "tslib": "^2.2.0",
     "typescript": "~4.2.4"
+  },
+  "dependencies": {
+    "@google-cloud/logging-winston": "^4.0.4",
+    "recursive-copy": "^2.0.11"
   }
 }
