@@ -2,13 +2,13 @@
   "name": "@anatine/esbuildnx",
   "version": "0.0.1",
   "main": "src/index.js",
-  "description": "Esbuild plugin for Nx to handle emitDecoratorMetadata",
+  "description": "Esbuild plugin for Nx",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anatine/esbuildnx"
   },
-  "homepage": "https://github.com/anatine/esbuildnx/tree/main/packages/esbuild-decorators",
+  "homepage": "https://github.com/anatine/esbuildnx/tree/main/packages/esbuildnx",
   "bugs": {
     "url": "https://github.com/anatine/esbuildnx/issues"
   },
@@ -20,25 +20,22 @@
     "Esbuild",
     "Monorepo",
     "Node",
-    "Nest",
-    "Jest",
-    "Cypress",
-    "CLI"
+    "Nest"
   ],
   "generators": "./generators.json",
   "executors": "./executors.json",
   "dependencies": {
-    "@anatine/esbuild-decorators": "^0.2.4",
+    "@anatine/esbuild-decorators": "^0.2.8",
     "fs-extra": "^9.1.0",
-    "@nrwl/workspace": "^11.5.2",
-    "@nrwl/devkit": "^11.5.2",
+    "@nrwl/workspace": "^12.0.6",
+    "@nrwl/devkit": "^12.0.6",
     "chalk": "^4.1.0",
     "node-watch": "^0.7.1",
-    "rxjs": "^6.6.6",
+    "rxjs": "^6.6.7",
     "rxjs-for-await": "^0.0.2",
-    "date-fns": "^2.19.0"
+    "date-fns": "^2.21.1"
   },
   "peerDependencies": {
-    "esbuild": "~0.11.2"
+    "esbuild": "~0.11.11"
   }
 }

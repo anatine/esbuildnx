@@ -1,6 +1,6 @@
 import { basename, dirname, relative, resolve } from 'path';
 import { BuildExecutorSchema } from 'anatine/esbuildnx';
-import type { InitializeOptions } from 'esbuild';
+import type { BuildOptions } from 'esbuild';
 import { statSync } from 'fs';
 
 export interface FileReplacement {
@@ -10,7 +10,7 @@ export interface FileReplacement {
 
 export function normalizeBuildOptions<
   T extends BuildExecutorSchema,
-  U extends InitializeOptions
+  U extends BuildOptions
 >(
   options: T,
   esbuildOptions: U,

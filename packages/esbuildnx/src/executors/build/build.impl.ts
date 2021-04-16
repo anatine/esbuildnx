@@ -3,13 +3,7 @@ import { ExecutorContext } from '@nrwl/devkit';
 import { normalizeBuildOptions } from '../../utils/normalize-options';
 import { pathExistsSync } from 'fs-extra';
 import { readJsonFile } from '@nrwl/workspace';
-import {
-  build,
-  BuildFailure,
-  BuildOptions,
-  BuildResult,
-  InitializeOptions,
-} from 'esbuild';
+import { build, BuildFailure, BuildOptions, BuildResult } from 'esbuild';
 import { spawn } from 'child_process';
 import { esbuildDecorators } from '@anatine/esbuild-decorators';
 import { gray, green, red, yellow } from 'chalk';
@@ -18,9 +12,10 @@ import { Observable, OperatorFunction, Subject, zip } from 'rxjs';
 import { buffer, delay, filter, map, share } from 'rxjs/operators';
 import { eachValueFrom } from 'rxjs-for-await';
 import { format } from 'date-fns';
-import { exportDiagnostics } from '../../utils/print-diagnostics';
+// import { exportDiagnostics } from '../../utils/print-diagnostics';
 import { inspect } from 'util';
 import { createProjectGraph } from '@nrwl/workspace/src/core/project-graph';
+import { copyPackages, getPackagesToCopy } from '../../utils/walk-packages';
 
 export function buildExecutor(
   rawOptions: BuildExecutorSchema,
@@ -40,9 +35,14 @@ export function buildExecutor(
   //  For now, the app root directory can utilize an esbuild.json file for build API settings
   //  https://esbuild.github.io/api/#build-api
   const esBuildExists = pathExistsSync(`${root}/esbuild.json`);
+  const packageExists = pathExistsSync(`${root}/package.json`);
 
-  const esbuildConfig = esBuildExists
-    ? readJsonFile<Partial<InitializeOptions>>(`${root}/esbuild.json`)
+  const esbuildConfig: BuildOptions = esBuildExists
+    ? readJsonFile<BuildOptions>(`${root}/esbuild.json`)
+    : { external: [] };
+
+  const projectPackage = packageExists
+    ? readJsonFile(`${root}/package.json`)
     : {};
 
   const options = normalizeBuildOptions(
@@ -60,6 +60,11 @@ export function buildExecutor(
   const outdir = `${options.outputPath}`;
 
   const watchDir = `${options.root}/${options.sourceRoot}`;
+
+  const packages = packageExists
+    ? Object.keys(projectPackage.dependencies)
+    : [];
+  esbuildConfig.external = [...packages, ...(esbuildConfig.external || [])];
 
   const esbuildOptions: BuildOptions = {
     logLevel: 'silent',
@@ -177,30 +182,57 @@ export function buildExecutor(
     })
   );
 
-  exportDiagnostics(
-    `OUTPUT_LOG.ts`,
-    `const output = ${inspect(
-      {
-        cwd: process.cwd(),
-        options,
-        rawOptions,
-        context,
-        projGraph,
-        workspace,
-      },
-      false,
-      10
-    )}`
+  const packageCopySubscriber = runCopyPackages(
+    process.cwd(),
+    options.outputPath,
+    esbuildOptions.external
+  ).pipe(
+    map((result) => {
+      const message = result.error ?? result.copyResult;
+      return {
+        success: result.success,
+        message,
+      };
+    })
   );
 
+  // exportDiagnostics(
+  //   `OUTPUT_LOG.ts`,
+  //   `const output = ${inspect(
+  //     {
+  //       cwd: process.cwd(),
+  //       options,
+  //       rawOptions,
+  //       context,
+  //       projGraph,
+  //       workspace,
+  //     },
+  //     false,
+  //     10
+  //   )}`
+  // );
+
   return eachValueFrom(
-    zip(buildSubscriber, tscSubscriber).pipe(
-      map(([buildResults, tscResults]) => {
+    zip(buildSubscriber, tscSubscriber, packageCopySubscriber).pipe(
+      map(([buildResults, tscResults, packageCopyResults]) => {
         // console.log('\x1Bc');
         console.log(tscResults.message);
         console.log(buildResults.message);
+        if (packageCopyResults.message.length !== 0) {
+          console.log(
+            `Copied node_modules: ${inspect(
+              packageCopyResults.message,
+              false,
+              10,
+              true
+            )}`
+          );
+        }
         return {
-          success: buildResults?.success && tscResults?.success,
+          success:
+            buildResults?.success &&
+            tscResults?.success &&
+            packageCopyResults.success,
         };
       })
     )
@@ -308,6 +340,36 @@ function runTsc({ tsconfigPath, watch, root, useGlobal }: RunTscOptions) {
         info: `Type check complete. Found ${errorCount} errors`,
       });
     });
+  });
+}
+
+interface RunCopyPackagesResponse {
+  copyResult: string[];
+  success: boolean;
+  error?: any;
+}
+
+function runCopyPackages(
+  root: string,
+  destination: string,
+  external: string[] = []
+) {
+  return new Observable<RunCopyPackagesResponse>((subscriber) => {
+    getPackagesToCopy(root, external)
+      .then((modules) => copyPackages(root, destination, modules))
+      .then((directories) => {
+        subscriber.next({
+          copyResult: directories ?? [],
+          success: true,
+        });
+      })
+      .catch((error) => {
+        subscriber.next({
+          copyResult: [],
+          success: false,
+          error,
+        });
+      });
   });
 }
 
