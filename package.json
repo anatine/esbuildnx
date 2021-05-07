@@ -67,7 +67,6 @@
   },
   "dependencies": {
     "@google-cloud/logging-winston": "^4.0.4",
-    "dd-trace": "^0.33.1",
     "recursive-copy": "^2.0.11"
   }
 }

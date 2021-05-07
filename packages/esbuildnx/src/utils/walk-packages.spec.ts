@@ -15,22 +15,6 @@ describe('Walk Packages', () => {
     expect(result).toBeDefined();
   });
 
-  test('dd-trace oddness', async () => {
-    const searchDir = process.cwd();
-    const result = await getPackagesToCopy(searchDir, [
-      'dd-trace',
-      'form-data',
-      // '@google-cloud/logging',
-    ]);
-    console.log(`Found total: ${result.length}`);
-    console.log(inspect(result.sort(), false, 20, true));
-    // expect(result.length).toEqual(27);
-    expect(result).toBeDefined();
-    expect(result).toContain('form-data');
-    expect(result).toContain('combined-stream');
-    expect(result).toContain('delayed-stream');
-  });
-
   test('Can return a list of directories to copy', async () => {
     const searchDir = process.cwd();
     const result = await getPackagesToCopy(searchDir, [
@@ -39,7 +23,7 @@ describe('Walk Packages', () => {
       '@babel/core',
     ]);
     console.log(inspect(result, false, 20, true));
-    expect(result.length).toEqual(104);
+    expect(result.length).toEqual(71);
   });
 
   test('Can copy packages over as expected', async () => {
@@ -62,22 +46,12 @@ describe('Walk Packages', () => {
         '@jest',
         '@nrwl',
         '@types',
-        'ansi-colors',
         'ansi-styles',
         'arg',
-        'async',
-        'balanced-match',
-        'brace-expansion',
-        'braces',
         'browserslist',
-        'buffer-from',
         'caniuse-lite',
         'chalk',
-        'ci-info',
-        'color-convert',
-        'color-name',
         'colorette',
-        'concat-map',
         'convert-source-map',
         'create-require',
         'debug',
@@ -86,57 +60,33 @@ describe('Walk Packages', () => {
         'electron-to-chromium',
         'enquirer',
         'escalade',
-        'filelist',
-        'fill-range',
         'find-up',
         'fs-extra',
         'gensync',
         'globals',
         'graceful-fs',
-        'has-flag',
         'ignore',
         'is-ci',
-        'is-core-module',
-        'is-number',
-        'jake',
         'jest-pnp-resolver',
         'jest-resolve',
         'jest-util',
         'jsesc',
         'json5',
+        'jsonfile',
         'locate-path',
         'lodash',
         'make-error',
-        'micromatch',
-        'minimatch',
         'minimist',
-        'ms',
-        'node-releases',
-        'os-tmpdir',
-        'p-limit',
-        'p-locate',
-        'path-exists',
-        'picomatch',
         'read-pkg',
         'read-pkg-up',
         'resolve',
         'rxjs',
-        'rxjs-for-await',
-        'safe-buffer',
         'semver',
-        'slash',
-        'source-map',
         'source-map-support',
         'strip-json-comments',
-        'supports-color',
         'tmp',
-        'to-fast-properties',
-        'to-regex-range',
-        'ts-node',
         'tslib',
-        'type-fest',
         'yargs-parser',
-        'yn',
       ].sort()
     );
   });
