@@ -15,7 +15,9 @@ import type { BuildOptions } from 'esbuild';
 export async function setupGenerator(host: Tree, options: Schema) {
   const projectConfig = readProjectConfiguration(host, options.name); // Probably needs a try/catch
 
-  const currentBuild = projectConfig?.targets?.[options.currentBuildCommand];
+  const { currentBuildCommand = 'build' } = options;
+
+  const currentBuild = projectConfig?.targets?.[currentBuildCommand];
 
   if (
     !currentBuild ||
@@ -27,7 +29,8 @@ export async function setupGenerator(host: Tree, options: Schema) {
   }
 
   if (options.overwrite) {
-    projectConfig.targets[options.currentBuildCommand].executor = '@anatine/esbuildnx:build';
+    projectConfig.targets[currentBuildCommand].executor =
+      '@anatine/esbuildnx:build';
   } else {
     projectConfig.targets.esbuild = {
       ...currentBuild,
