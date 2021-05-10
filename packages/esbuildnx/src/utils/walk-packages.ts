@@ -20,7 +20,7 @@ export async function getPackagesToCopy(
   const dirs = (await readdir(cwd).catch((err) => console.error(err))) || [];
 
   // Break out the @ package directories as well
-  for (let i = 0; i < dirs.length - 1; i++) {
+  for (let i = 0; i < dirs.length; i++) {
     const name = dirs[i];
     if (name.startsWith('@')) {
       const subDirs =
