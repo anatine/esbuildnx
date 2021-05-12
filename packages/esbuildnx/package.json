@@ -1,9 +1,9 @@
 {
   "name": "@anatine/esbuildnx",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Esbuild plugin for Nx",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "license": "MIT",
   "public": true,
   "repository": {
@@ -22,16 +22,17 @@
     "Esbuild",
     "Monorepo",
     "Node",
-    "Nest"
+    "Nest",
+    "Nx"
   ],
   "generators": "./generators.json",
   "executors": "./executors.json",
   "dependencies": {
-    "@anatine/esbuild-decorators": "^0.2.8",
-    "@nrwl/devkit": "^12.0.6",
-    "@nrwl/workspace": "^12.0.6",
+    "@anatine/esbuild-decorators": "^0.2.10",
+    "@nrwl/devkit": "^12.2.0",
+    "@nrwl/workspace": "^12.2.0",
     "chalk": "^4.1.0",
-    "date-fns": "^2.21.1",
+    "date-fns": "^2.21.3",
     "fs-extra": "^9.1.0",
     "node-watch": "^0.7.1",
     "recursive-copy": "^2.0.11",
@@ -39,6 +40,6 @@
     "rxjs-for-await": "^0.0.2"
   },
   "peerDependencies": {
-    "esbuild": "~0.11.11"
+    "esbuild": "~0.11.20"
   }
 }

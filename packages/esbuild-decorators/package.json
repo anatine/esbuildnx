@@ -1,6 +1,6 @@
 {
   "name": "@anatine/esbuild-decorators",
-  "version": "0.2.8",
+  "version": "0.2.10",
   "description": "Esbuild plugin for Nx to handle emitDecoratorMetadata",
   "repository": {
     "type": "git",
@@ -11,8 +11,8 @@
     "decorators",
     "typescript"
   ],
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "author": {
     "name": "Brian McBride",
     "url": "https://www.linkedin.com/in/brianmcbride"
@@ -29,6 +29,6 @@
   },
   "homepage": "https://github.com/anatine/esbuildnx/tree/main/packages/esbuild-decorators",
   "peerDependencies": {
-    "esbuild": "~0.11.11"
+    "esbuild": "~0.11.20"
   }
 }

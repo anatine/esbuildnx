@@ -1,5 +1,6 @@
 import {
   ensureNxProject,
+  patchPackageJsonForPlugin,
   runNxCommandAsync,
   uniq,
   tmpProjPath,
