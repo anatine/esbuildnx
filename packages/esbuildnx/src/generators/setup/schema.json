@@ -23,6 +23,11 @@
       "type": "boolean",
       "default": false,
       "description": "Will fill in necessary externalized packages for a starting NestJS app."
+    },
+    "currentBuildCommand": {
+      "type": "string",
+      "default": "build",
+      "description": "The name of the build target in workspace.json that should be cloned/replaced"
     }
   },
   "required": ["name"]

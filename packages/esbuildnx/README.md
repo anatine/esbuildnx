@@ -59,7 +59,7 @@ nx esbuild <node-app> --watch
 
 ### Overridden build
 
-If the setup was run with the `--overritde` flag, build your node app as normal within the nx environment.
+If the setup was run with the `--overwrite` flag, build your node app as normal within the nx environment.
 ```shell
 nx build <node-app>
 ```
