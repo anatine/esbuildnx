@@ -20,7 +20,7 @@ export async function getPackagesToCopy(
   const dirs = (await readdir(cwd).catch((err) => console.error(err))) || [];
 
   // Break out the @ package directories as well
-  for (let i = 0; i < dirs.length - 1; i++) {
+  for (let i = 0; i < dirs.length; i++) {
     const name = dirs[i];
     if (name.startsWith('@')) {
       const subDirs =
@@ -45,7 +45,7 @@ export async function getPackagesToCopy(
       Object.assign({}, pkg.dependencies || {}, pkg.optionalDependencies || {})
     );
 
-    for (let i = 0; i < allDeps.length - 1; i++) {
+    for (let i = 0; i < allDeps.length; i++) {
       const name = allDeps[i];
       const module = modules.get(name);
 
@@ -76,7 +76,7 @@ export async function getPackagesToCopy(
     }
   };
 
-  for (let i = 0; i < dirs.length - 1; i++) {
+  for (let i = 0; i < dirs.length; i++) {
     const item = dirs[i];
     const data = {
       external: Boolean(external.find((search) => search === item)),
@@ -120,7 +120,7 @@ export async function copyPackages(
 
   await ensureDir(`${destPath}/node_modules`);
 
-  for (let i = 0; i < modules.length - 1; i++) {
+  for (let i = 0; i < modules.length; i++) {
     const name = modules[i];
     await copy(
       `${projectRoot}/node_modules/${name}`,
