@@ -15,6 +15,7 @@ import { format } from 'date-fns';
 // import { exportDiagnostics } from '../../utils/print-diagnostics';
 import { inspect } from 'util';
 import { copyPackages, getPackagesToCopy } from '../../utils/walk-packages';
+import { copyAssets } from '../../utils/assets';
 
 export function buildExecutor(
   rawOptions: BuildExecutorSchema,
@@ -191,6 +192,12 @@ export function buildExecutor(
     })
   );
 
+  const assetCopySubscriber = runCopyAssets(
+    options.assets,
+    '',
+    options.outputPath
+  ).pipe(map((result) => result));
+
   // exportDiagnostics(
   //   `OUTPUT_LOG.ts`,
   //   `const output = ${inspect(
@@ -223,28 +230,39 @@ export function buildExecutor(
   }
 
   return eachValueFrom(
-    zip(buildSubscriber, tscSubscriber, packageCopySubscriber).pipe(
-      map(([buildResults, tscResults, packageCopyResults]) => {
-        // console.log('\x1Bc');
-        console.log(tscResults.message);
-        console.log(buildResults.message);
-        if (packageCopyResults.message.length !== 0) {
-          console.log(
-            `Copied node_modules: ${inspect(
-              packageCopyResults.message,
-              false,
-              10,
-              true
-            )}`
-          );
+    zip(
+      buildSubscriber,
+      tscSubscriber,
+      packageCopySubscriber,
+      assetCopySubscriber
+    ).pipe(
+      map(
+        ([buildResults, tscResults, packageCopyResults, assetCopyResults]) => {
+          // console.log('\x1Bc');
+          console.log(tscResults.message);
+          console.log(buildResults.message);
+          if (packageCopyResults.message.length !== 0) {
+            console.log(
+              `Copied node_modules: ${inspect(
+                packageCopyResults.message,
+                false,
+                10,
+                true
+              )}`
+            );
+          }
+          if (assetCopyResults.error) {
+            console.error(`Error copying assets: ${assetCopyResults.error}`);
+          }
+          return {
+            success:
+              buildResults?.success &&
+              tscResults?.success &&
+              packageCopyResults.success &&
+              assetCopyResults.success,
+          };
         }
-        return {
-          success:
-            buildResults?.success &&
-            tscResults?.success &&
-            packageCopyResults.success,
-        };
-      })
+      )
     )
   );
 }
@@ -376,6 +394,26 @@ function runCopyPackages(
       .catch((error) => {
         subscriber.next({
           copyResult: [],
+          success: false,
+          error,
+        });
+      });
+  });
+}
+
+interface RunCopyAssetsResponse {
+  success: boolean;
+  error?: string;
+}
+
+function runCopyAssets(assets: string[], root: string, destination: string) {
+  return new Observable<RunCopyAssetsResponse>((subscriber) => {
+    copyAssets(assets, root, destination)
+      .then((response) => {
+        subscriber.next(response);
+      })
+      .catch((error) => {
+        subscriber.next({
           success: false,
           error,
         });

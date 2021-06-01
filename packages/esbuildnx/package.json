@@ -27,6 +27,7 @@
   ],
   "generators": "./generators.json",
   "executors": "./executors.json",
+  "builders": "../../@nrwl/node/builders.json",
   "dependencies": {
     "@anatine/esbuild-decorators": "^0.2.10",
     "@nrwl/devkit": "^12.2.0",
