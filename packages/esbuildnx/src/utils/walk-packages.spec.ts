@@ -24,7 +24,7 @@ describe('Walk Packages', () => {
       '@babel/core',
     ]);
     // console.log(inspect(result, false, 20, true));
-    expect(result.length).toEqual(114);
+    expect(result.length).toEqual(113);
   });
 
   // TODO This test needs to be more controlled rather than running against package.json
@@ -95,7 +95,6 @@ describe('Walk Packages', () => {
         'json5',
         'jsonfile',
         'locate-path',
-        'lodash',
         'make-error',
         'micromatch',
         'minimatch',
