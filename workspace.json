@@ -1,6 +1,38 @@
 {
   "version": 2,
   "projects": {
+    "esbuild-decorators": {
+      "root": "packages/esbuild-decorators",
+      "sourceRoot": "packages/esbuild-decorators/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/esbuild-decorators/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/esbuild-decorators"],
+          "options": {
+            "jestConfig": "packages/esbuild-decorators/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/esbuild-decorators",
+            "tsConfig": "packages/esbuild-decorators/tsconfig.lib.json",
+            "packageJson": "packages/esbuild-decorators/package.json",
+            "main": "packages/esbuild-decorators/src/index.ts",
+            "assets": ["packages/esbuild-decorators/*.md"]
+          }
+        }
+      }
+    },
     "esbuildnx": {
       "root": "packages/esbuildnx",
       "sourceRoot": "packages/esbuildnx/src",
@@ -9,16 +41,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "packages/esbuildnx/**/*.ts"
-            ]
+            "lintFilePatterns": ["packages/esbuildnx/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/packages/esbuildnx"
-          ],
+          "outputs": ["coverage/packages/esbuildnx"],
           "options": {
             "jestConfig": "packages/esbuildnx/jest.config.js",
             "passWithNoTests": true
@@ -26,9 +54,7 @@
         },
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/packages/esbuildnx",
             "tsConfig": "packages/esbuildnx/tsconfig.lib.json",
@@ -68,46 +94,6 @@
             "npmPackageName": "@anatine/esbuildnx",
             "pluginOutputPath": "dist/packages/esbuildnx",
             "jestConfig": "e2e/esbuildnx-e2e/jest.config.js"
-          }
-        }
-      }
-    },
-    "esbuild-decorators": {
-      "root": "packages/esbuild-decorators",
-      "sourceRoot": "packages/esbuild-decorators/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "packages/esbuild-decorators/**/*.ts"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/packages/esbuild-decorators"
-          ],
-          "options": {
-            "jestConfig": "packages/esbuild-decorators/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
-          "options": {
-            "outputPath": "dist/packages/esbuild-decorators",
-            "tsConfig": "packages/esbuild-decorators/tsconfig.lib.json",
-            "packageJson": "packages/esbuild-decorators/package.json",
-            "main": "packages/esbuild-decorators/src/index.ts",
-            "assets": [
-              "packages/esbuild-decorators/*.md"
-            ]
           }
         }
       }

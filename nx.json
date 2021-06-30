@@ -1,9 +1,14 @@
 {
   "npmScope": "anatine",
-  "affected": { "defaultBase": "main" },
+  "affected": {
+    "defaultBase": "main"
+  },
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
@@ -12,13 +17,33 @@
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
     }
   },
   "projects": {
-    "esbuildnx": { "tags": [] },
-    "esbuildnx-e2e": { "tags": [], "implicitDependencies": ["esbuildnx"] },
-    "esbuild-decorators": { "tags": [] }
+    "esbuild-decorators": {
+      "tags": []
+    },
+    "esbuildnx": {
+      "tags": []
+    },
+    "esbuildnx-e2e": {
+      "tags": [],
+      "implicitDependencies": ["esbuildnx"]
+    }
   },
-  "workspaceLayout": { "appsDir": "e2e", "libsDir": "packages" }
+  "workspaceLayout": {
+    "appsDir": "e2e",
+    "libsDir": "packages"
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  }
 }
