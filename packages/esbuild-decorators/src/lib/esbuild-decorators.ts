@@ -1,5 +1,5 @@
 import type { Plugin } from 'esbuild';
-import { readFile } from 'fs/promises';
+import { promises } from 'fs';
 import { join, dirname } from 'path';
 import {
   ParsedCommandLine,
@@ -22,6 +22,8 @@ export interface EsbuildDecoratorsOptions {
   // If true, enables tsx file support
   tsx?: boolean;
 }
+
+const { readFile } = promises
 
 const theFinder = new RegExp(
   /((?<![(\s]\s*['"])@\w[.[\]\w\d]*\s*(?![;])[((?=\s)])/
