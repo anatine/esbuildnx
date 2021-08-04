@@ -1,3 +1,8 @@
+## 0.2.17 (2021-08-04)
+
+### Updates
+* **release:** Updating dependencies
+
 ## 0.2.12 (2021-06-29)
 
 ### Updates

@@ -1,6 +1,6 @@
 {
   "name": "@anatine/esbuildnx",
-  "version": "0.0.6",
+  "version": "0.1.17",
   "description": "Esbuild plugin for Nx",
   "main": "src/index.js",
   "types": "src/index.d.ts",
@@ -41,6 +41,6 @@
     "rxjs-for-await": "^0.0.2"
   },
   "peerDependencies": {
-    "esbuild": "~0.12.12"
+    "esbuild": "~0.12.17"
   }
 }

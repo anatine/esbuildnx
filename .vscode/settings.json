@@ -3,5 +3,10 @@
     "devkit",
     "esbuild",
     "esbuildnx"
-  ]
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#1B3314",
+    "titleBar.activeBackground": "#26481C",
+    "titleBar.activeForeground": "#F8FCF7"
+  }
 }
