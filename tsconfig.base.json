@@ -16,10 +16,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "anatine/esbuildnx": ["packages/esbuildnx/src/index.ts"],
       "@anatine/esbuild-decorators": [
         "packages/esbuild-decorators/src/index.ts"
-      ]
+      ],
+      "anatine/esbuildnx": ["packages/esbuildnx/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

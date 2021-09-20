@@ -34,7 +34,7 @@ describe('esbuildnx e2e', () => {
     removeSync(esbuildnxPluginModules);
   });
 
-  it('should create esbuildnx', async (done) => {
+  it('should create esbuildnx', async () => {
     const plugin = uniq('esbuildnx');
 
     console.log(`Generating temp project`);
@@ -82,6 +82,6 @@ describe('esbuildnx e2e', () => {
     //   ['@nrwl', 'jest-resolve', 'rxjs', 'strip-json-comments'].sort()
     // );
 
-    done();
+    // done();
   }, 150000);
 });

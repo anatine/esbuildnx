@@ -1,7 +1,5 @@
+const { getJestProjects } = require('@nrwl/jest');
+
 module.exports = {
-  projects: [
-    '<rootDir>/packages/esbuildnx',
-    '<rootDir>/e2e/esbuildnx-e2e',
-    '<rootDir>/packages/esbuild-decorators',
-  ],
+  projects: [...getJestProjects(), '<rootDir>/e2e/esbuildnx-e2e'],
 };
