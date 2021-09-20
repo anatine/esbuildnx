@@ -16,11 +16,13 @@ import { format } from 'date-fns';
 import { inspect } from 'util';
 import { copyPackages, getPackagesToCopy } from '../../utils/walk-packages';
 import { copyAssets } from '../../utils/assets';
+import { OUTFILE_NAME } from '../../utils/constants';
+import { NodeBuildEvent } from '@nrwl/node/src/executors/build/build.impl';
 
 export function buildExecutor(
   rawOptions: BuildExecutorSchema,
   context: ExecutorContext
-): AsyncIterableIterator<{ success: boolean }> {
+): AsyncIterableIterator<NodeBuildEvent> {
   const { sourceRoot, root } = context.workspace.projects[context.projectName];
 
   if (!sourceRoot) {
@@ -54,6 +56,7 @@ export function buildExecutor(
   );
 
   const outdir = `${options.outputPath}`;
+  const outfile = `${outdir}/${OUTFILE_NAME}`;
 
   const watchDir = `${options.root}/${options.sourceRoot}`;
 
@@ -223,6 +226,7 @@ export function buildExecutor(
           console.log(buildResults.message);
           return {
             success: buildResults?.success && tscResults?.success,
+            outfile,
           };
         })
       )
@@ -260,6 +264,7 @@ export function buildExecutor(
               tscResults?.success &&
               packageCopyResults.success &&
               assetCopyResults.success,
+            outfile,
           };
         }
       )

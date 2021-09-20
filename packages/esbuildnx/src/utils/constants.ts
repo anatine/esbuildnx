@@ -1,0 +1,1 @@
+export const OUTFILE_NAME = 'main.js'
