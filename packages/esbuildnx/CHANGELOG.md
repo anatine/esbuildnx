@@ -1,3 +1,7 @@
+## 0.1.18 (2021-09-18)
+### Updates
+* **release:** Adding outfile property to the response of buildExecutor
+
 ## 0.1.17 (2021-08-04)
 ### Updates
 * **release:** Updating dependencies
