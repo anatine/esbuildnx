@@ -1,6 +1,6 @@
 {
   "name": "@anatine/esbuildnx",
-  "version": "0.1.18",
+  "version": "0.2.0",
   "description": "Esbuild plugin for Nx",
   "main": "src/index.js",
   "types": "src/index.d.ts",
@@ -29,7 +29,7 @@
   "executors": "./executors.json",
   "builders": "../../@nrwl/node/builders.json",
   "dependencies": {
-    "@anatine/esbuild-decorators": "^0.2.17",
+    "@anatine/esbuild-decorators": "^0.2.18",
     "@nrwl/devkit": "^12.9.0",
     "@nrwl/workspace": "^12.9.0",
     "chalk": "^4.1.2",
@@ -41,6 +41,6 @@
     "rxjs-for-await": "^0.0.2"
   },
   "peerDependencies": {
-    "esbuild": "~0.12.28"
+    "esbuild": "~0.14.29"
   }
 }

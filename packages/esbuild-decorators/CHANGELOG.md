@@ -1,3 +1,7 @@
+## 0.2.17 (2021-08-20)
+### Updates
+* **release:** Support Node 12
+
 ## 0.2.17 (2021-08-04)
 
 ### Updates

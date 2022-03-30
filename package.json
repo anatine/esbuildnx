@@ -47,27 +47,27 @@
     "@nrwl/tao": "12.9.0",
     "@nrwl/workspace": "12.9.0",
     "@types/fs-extra": "^9.0.12",
-    "@types/jest": "^27.0.1",
-    "@types/node": "16.9.4",
+    "@types/jest": "^27.4.1",
+    "@types/node": "17.0.23",
     "@typescript-eslint/eslint-plugin": "4.29.0",
     "@typescript-eslint/parser": "4.29.0",
-    "date-fns": "^2.24.0",
-    "dotenv": "10.0.0",
-    "esbuild": "~0.12.28",
+    "date-fns": "^2.28.0",
+    "dotenv": "16.0.0",
+    "esbuild": "~0.14.29",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
-    "fs-extra": "^10.0.0",
-    "jest": "27.2.1",
-    "node-watch": "^0.7.2",
-    "prettier": "2.4.1",
+    "fs-extra": "^10.0.1",
+    "jest": "27.5.1",
+    "node-watch": "^0.7.3",
+    "prettier": "2.6.1",
     "strip-comments": "^2.0.1",
-    "ts-jest": "27.0.5",
-    "ts-node": "~10.2.1",
+    "ts-jest": "27.1.4",
+    "ts-node": "~10.7.0",
     "tslib": "^2.3.1",
-    "typescript": "4.4.3"
+    "typescript": "4.6.3"
   },
   "dependencies": {
-    "@google-cloud/logging-winston": "^4.1.1",
-    "recursive-copy": "^2.0.13"
+    "@google-cloud/logging-winston": "^4.2.2",
+    "recursive-copy": "^2.0.14"
   }
 }

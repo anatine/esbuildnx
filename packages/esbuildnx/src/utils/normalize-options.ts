@@ -1,7 +1,7 @@
 import { basename, dirname, relative, resolve } from 'path';
-import { BuildExecutorSchema } from 'anatine/esbuildnx';
 import type { BuildOptions } from 'esbuild';
 import { statSync } from 'fs';
+import { BuildExecutorSchema } from '..';
 
 export interface FileReplacement {
   replace: string;
