@@ -45,6 +45,7 @@
     "@nrwl/node": "12.9.0",
     "@nrwl/nx-plugin": "12.9.0",
     "@nrwl/tao": "12.9.0",
+    "@nrwl/web": "^15.0.0",
     "@nrwl/workspace": "12.9.0",
     "@types/fs-extra": "^9.0.12",
     "@types/jest": "^27.4.1",

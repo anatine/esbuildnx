@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`plugin tests Can transpile successfully on various test cases 1`] = `
+Array [
+  Object {
+    "contents": "\\"use strict\\";
+var _a;
+Object.defineProperty(exports, \\"__esModule\\", { value: true });
+exports.AppController = void 0;
+const tslib_1 = require(\\"tslib\\");
+const common_1 = require(\\"@nestjs/common\\");
+const app_service_1 = require(\\"./app.service\\");
+const javaScriptWay = require('@legacy/registry');
+const javaScriptDoubleQuotes = require(\\"@single/double\\");
+const makingThisHard = require(\\"@please-install/prettier\\");
+let AppController = class AppController {
+    constructor(appService) {
+        this.appService = appService;
+    }
+    getData() {
+        return this.appService.getData();
+    }
+};
+AppController = tslib_1.__decorate([
+    (0, common_1.Controller)(),
+    tslib_1.__metadata(\\"design:paramtypes\\", [typeof (_a = typeof app_service_1.AppService !== \\"undefined\\" && app_service_1.AppService) === \\"function\\" ? _a : Object])
+], AppController);
+exports.AppController = AppController;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29weS0xLnRzLnRlc3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9tb2NrLXByb2plY3QvYXBwL3NyYy9jb3B5LTEudHMudGVzdCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQVdBLDJDQUFpRDtBQUVqRCwrQ0FBMkM7QUFFM0MsTUFBTSxhQUFhLEdBQUcsT0FBTyxDQUFFLGtCQUFrQixDQUFHLENBQUE7QUFDcEQsTUFBTSxzQkFBc0IsR0FBRyxPQUFPLENBQUMsZ0JBQWdCLENBQUMsQ0FBQTtBQUN4RCxNQUFNLGNBQWMsR0FBSSxPQUFPLENBQUssMEJBQTBCLENBQUMsQ0FBQTtBQUcvRCxJQUFhLGFBQWEsR0FBMUIsTUFBYSxhQUFhO0lBQ3hCLFlBQTZCLFVBQXNCO1FBQXRCLGVBQVUsR0FBVixVQUFVLENBQVk7SUFBRyxDQUFDO0lBRXZELE9BQU87UUFDTCxPQUFPLElBQUksQ0FBQyxVQUFVLENBQUMsT0FBTyxFQUFFLENBQUM7SUFDbkMsQ0FBQztDQUNGLENBQUE7QUFOWSxhQUFhO0lBRHpCLElBQUEsbUJBQVUsR0FBRTtpRUFFOEIsd0JBQVUsb0JBQVYsd0JBQVU7R0FEeEMsYUFBYSxDQU16QjtBQU5ZLHNDQUFhIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7IENvbXBvbmVudCB9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHsgd2l0aFJvdXRlciB9IGZyb20gJ3JlYWN0LXJvdXRlci1kb20nXG5pbXBvcnQgeyBjb25uZWN0IH0gZnJvbSAncmVhY3QtcmVkdXgnXG5pbXBvcnQgeyBzb21ldGhpbmcgfSBmcm9tIFwiQHNvbWUtbW9kdWxlL2FueXRoaW5nXCJcbmltcG9ydCB7IFxuICAgIGZvbywgXG4gICAgYmFyLCBcbiAgICBmb29CYXIgXG59IGZyb20gJ2Zvby1iYXInXG5pbXBvcnQgeyBhbm90aGVyVGhpbmcgfSBmcm9tICAgJ0Bhbm90aGVyLW1vZHVsZS9zb21ldGhpbmcnXG5cbmltcG9ydCB7IENvbnRyb2xsZXIsIEdldCB9IGZyb20gJ0BuZXN0anMvY29tbW9uJztcblxuaW1wb3J0IHsgQXBwU2VydmljZSB9IGZyb20gJy4vYXBwLnNlcnZpY2UnO1xuXG5jb25zdCBqYXZhU2NyaXB0V2F5ID0gcmVxdWlyZSggJ0BsZWdhY3kvcmVnaXN0cnknICApXG5jb25zdCBqYXZhU2NyaXB0RG91YmxlUXVvdGVzID0gcmVxdWlyZShcIkBzaW5nbGUvZG91YmxlXCIpXG5jb25zdCBtYWtpbmdUaGlzSGFyZCA9ICByZXF1aXJlICggICBcIkBwbGVhc2UtaW5zdGFsbC9wcmV0dGllclwiKVxuXG5AQ29udHJvbGxlcigpXG5leHBvcnQgY2xhc3MgQXBwQ29udHJvbGxlciB7XG4gIGNvbnN0cnVjdG9yKHByaXZhdGUgcmVhZG9ubHkgYXBwU2VydmljZTogQXBwU2VydmljZSkge31cblxuICBnZXREYXRhKCkge1xuICAgIHJldHVybiB0aGlzLmFwcFNlcnZpY2UuZ2V0RGF0YSgpO1xuICB9XG59XG4iXX0=",
+  },
+  Object {
+    "contents": "\\"use strict\\";
+Object.defineProperty(exports, \\"__esModule\\", { value: true });
+exports.AppController = void 0;
+const tslib_1 = require(\\"tslib\\");
+const common_1 = require(\\"@nestjs/common\\");
+const javaScriptWay = require('@legacy/registry');
+const javaScriptDoubleQuotes = require(\\"@single/double\\");
+const makingThisHard = require(\\"@please-install/prettier\\");
+const makingThisHard = require('@please-install/prettier');
+class AppController {
+    constructor(appService) {
+        this.appService = appService;
+    }
+    getData() {
+        return this.appService.getData();
+    }
+}
+tslib_1.__decorate([
+    (0, common_1.Get)('/some-route'),
+    tslib_1.__metadata(\\"design:type\\", Function),
+    tslib_1.__metadata(\\"design:paramtypes\\", []),
+    tslib_1.__metadata(\\"design:returntype\\", void 0)
+], AppController.prototype, \\"getData\\", null);
+exports.AppController = AppController;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29weS0yLnRzLnRlc3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9tb2NrLXByb2plY3QvYXBwL3NyYy9jb3B5LTIudHMudGVzdCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBV0EsMkNBQWlEO0FBSWpELE1BQU0sYUFBYSxHQUFHLE9BQU8sQ0FBRSxrQkFBa0IsQ0FBRyxDQUFBO0FBQ3BELE1BQU0sc0JBQXNCLEdBQUcsT0FBTyxDQUFDLGdCQUFnQixDQUFDLENBQUE7QUFDeEQsTUFBTSxjQUFjLEdBQUksT0FBTyxDQUFLLDBCQUEwQixDQUFDLENBQUE7QUFDL0QsTUFBTSxjQUFjLEdBQUcsT0FBTyxDQUFDLDBCQUEwQixDQUFDLENBQUM7QUFFM0QsTUFBYSxhQUFhO0lBQ3hCLFlBQTZCLFVBQXNCO1FBQXRCLGVBQVUsR0FBVixVQUFVLENBQVk7SUFBRyxDQUFDO0lBR3ZELE9BQU87UUFDTCxPQUFPLElBQUksQ0FBQyxVQUFVLENBQUMsT0FBTyxFQUFFLENBQUM7SUFDbkMsQ0FBQztDQUNGO0FBSEM7SUFEQyxJQUFBLFlBQUcsRUFBQyxhQUFhLENBQUM7Ozs7NENBR2xCO0FBTkgsc0NBT0MiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QsIHsgQ29tcG9uZW50IH0gZnJvbSAncmVhY3QnXG5pbXBvcnQgeyB3aXRoUm91dGVyIH0gZnJvbSAncmVhY3Qtcm91dGVyLWRvbSdcbmltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCdcbmltcG9ydCB7IHNvbWV0aGluZyB9IGZyb20gXCJAc29tZS1tb2R1bGUvYW55dGhpbmdcIlxuaW1wb3J0IHsgXG4gICAgZm9vLCBcbiAgICBiYXIsIFxuICAgIGZvb0JhciBcbn0gZnJvbSAnZm9vLWJhcidcbmltcG9ydCB7IGFub3RoZXJUaGluZyB9IGZyb20gICAnQGFub3RoZXItbW9kdWxlL3NvbWV0aGluZydcblxuaW1wb3J0IHsgQ29udHJvbGxlciwgR2V0IH0gZnJvbSAnQG5lc3Rqcy9jb21tb24nO1xuXG5pbXBvcnQgeyBBcHBTZXJ2aWNlIH0gZnJvbSAnLi9hcHAuc2VydmljZSc7XG5cbmNvbnN0IGphdmFTY3JpcHRXYXkgPSByZXF1aXJlKCAnQGxlZ2FjeS9yZWdpc3RyeScgIClcbmNvbnN0IGphdmFTY3JpcHREb3VibGVRdW90ZXMgPSByZXF1aXJlKFwiQHNpbmdsZS9kb3VibGVcIilcbmNvbnN0IG1ha2luZ1RoaXNIYXJkID0gIHJlcXVpcmUgKCAgIFwiQHBsZWFzZS1pbnN0YWxsL3ByZXR0aWVyXCIpXG5jb25zdCBtYWtpbmdUaGlzSGFyZCA9IHJlcXVpcmUoJ0BwbGVhc2UtaW5zdGFsbC9wcmV0dGllcicpO1xuXG5leHBvcnQgY2xhc3MgQXBwQ29udHJvbGxlciB7XG4gIGNvbnN0cnVjdG9yKHByaXZhdGUgcmVhZG9ubHkgYXBwU2VydmljZTogQXBwU2VydmljZSkge31cblxuICBAR2V0KCcvc29tZS1yb3V0ZScpXG4gIGdldERhdGEoKSB7XG4gICAgcmV0dXJuIHRoaXMuYXBwU2VydmljZS5nZXREYXRhKCk7XG4gIH1cbn1cbiJdfQ==",
+  },
+  Object {
+    "contents": "\\"use strict\\";
+Object.defineProperty(exports, \\"__esModule\\", { value: true });
+exports.AppController = void 0;
+const tslib_1 = require(\\"tslib\\");
+const javaScriptWay = require('@legacy/registry');
+const javaScriptDoubleQuotes = require(\\"@single/double\\");
+const makingThisHard = require(\\"@please-install/prettier\\");
+class AppController {
+    constructor(appService) {
+        this.appService = appService;
+    }
+    getData() {
+        return this.appService.getData();
+    }
+    getBent() {
+        return 'Hey, 1337 Classnames, like all the cool kids do';
+    }
+}
+tslib_1.__decorate([
+    horr1bl3Name('talent', null),
+    tslib_1.__metadata(\\"design:type\\", Function),
+    tslib_1.__metadata(\\"design:paramtypes\\", []),
+    tslib_1.__metadata(\\"design:returntype\\", void 0)
+], AppController.prototype, \\"getBent\\", null);
+exports.AppController = AppController;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29weS0zLnRzLnRlc3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9tb2NrLXByb2plY3QvYXBwL3NyYy9jb3B5LTMudHMudGVzdCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBZUEsTUFBTSxhQUFhLEdBQUcsT0FBTyxDQUFFLGtCQUFrQixDQUFHLENBQUE7QUFDcEQsTUFBTSxzQkFBc0IsR0FBRyxPQUFPLENBQUMsZ0JBQWdCLENBQUMsQ0FBQTtBQUN4RCxNQUFNLGNBQWMsR0FBSSxPQUFPLENBQUssMEJBQTBCLENBQUMsQ0FBQztBQUVoRSxNQUFhLGFBQWE7SUFDeEIsWUFBNkIsVUFBc0I7UUFBdEIsZUFBVSxHQUFWLFVBQVUsQ0FBWTtJQUFHLENBQUM7SUFFdkQsT0FBTztRQUNMLE9BQU8sSUFBSSxDQUFDLFVBQVUsQ0FBQyxPQUFPLEVBQUUsQ0FBQztJQUNuQyxDQUFDO0lBR0QsT0FBTztRQUNMLE9BQU8saURBQWlELENBQUM7SUFDM0QsQ0FBQztDQUNGO0FBSEM7SUFEQyxZQUFZLENBQUMsUUFBUSxFQUFFLElBQUksQ0FBQzs7Ozs0Q0FHNUI7QUFWSCxzQ0FXQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCwgeyBDb21wb25lbnQgfSBmcm9tICdyZWFjdCdcbmltcG9ydCB7IHdpdGhSb3V0ZXIgfSBmcm9tICdyZWFjdC1yb3V0ZXItZG9tJ1xuaW1wb3J0IHsgY29ubmVjdCB9IGZyb20gJ3JlYWN0LXJlZHV4J1xuaW1wb3J0IHsgc29tZXRoaW5nIH0gZnJvbSBcIkBzb21lLW1vZHVsZS9hbnl0aGluZ1wiXG5pbXBvcnQgeyBcbiAgICBmb28sIFxuICAgIGJhciwgXG4gICAgZm9vQmFyIFxufSBmcm9tICdmb28tYmFyJ1xuaW1wb3J0IHsgYW5vdGhlclRoaW5nIH0gZnJvbSAgICdAYW5vdGhlci1tb2R1bGUvc29tZXRoaW5nJ1xuXG5pbXBvcnQgeyBDb250cm9sbGVyLCBHZXQgfSBmcm9tICdAbmVzdGpzL2NvbW1vbic7XG5cbmltcG9ydCB7IEFwcFNlcnZpY2UgfSBmcm9tICcuL2FwcC5zZXJ2aWNlJztcblxuY29uc3QgamF2YVNjcmlwdFdheSA9IHJlcXVpcmUoICdAbGVnYWN5L3JlZ2lzdHJ5JyAgKVxuY29uc3QgamF2YVNjcmlwdERvdWJsZVF1b3RlcyA9IHJlcXVpcmUoXCJAc2luZ2xlL2RvdWJsZVwiKVxuY29uc3QgbWFraW5nVGhpc0hhcmQgPSAgcmVxdWlyZSAoICAgXCJAcGxlYXNlLWluc3RhbGwvcHJldHRpZXJcIik7XG5cbmV4cG9ydCBjbGFzcyBBcHBDb250cm9sbGVyIHtcbiAgY29uc3RydWN0b3IocHJpdmF0ZSByZWFkb25seSBhcHBTZXJ2aWNlOiBBcHBTZXJ2aWNlKSB7fVxuXG4gIGdldERhdGEoKSB7XG4gICAgcmV0dXJuIHRoaXMuYXBwU2VydmljZS5nZXREYXRhKCk7XG4gIH1cblxuICBAaG9ycjFibDNOYW1lKCd0YWxlbnQnLCBudWxsKVxuICBnZXRCZW50KCkge1xuICAgIHJldHVybiAnSGV5LCAxMzM3IENsYXNzbmFtZXMsIGxpa2UgYWxsIHRoZSBjb29sIGtpZHMgZG8nO1xuICB9XG59XG4iXX0=",
+  },
+  Object {
+    "contents": "\\"use strict\\";
+Object.defineProperty(exports, \\"__esModule\\", { value: true });
+exports.AppController = void 0;
+const tslib_1 = require(\\"tslib\\");
+const javaScriptWay = require('@legacy/registry');
+const javaScriptDoubleQuotes = require(\\"@single/double\\");
+const makingThisHard = require(\\"@please-install/prettier\\");
+class AppController {
+    constructor(appService) {
+        this.appService = appService;
+    }
+    ugh() {
+        return \`Like we need this?\`;
+    }
+}
+tslib_1.__decorate([
+    ParamlessDecorator,
+    tslib_1.__metadata(\\"design:type\\", Function),
+    tslib_1.__metadata(\\"design:paramtypes\\", []),
+    tslib_1.__metadata(\\"design:returntype\\", void 0)
+], AppController.prototype, \\"ugh\\", null);
+exports.AppController = AppController;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29weS00LnRzLnRlc3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9tb2NrLXByb2plY3QvYXBwL3NyYy9jb3B5LTQudHMudGVzdCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBcUJBLE1BQU0sYUFBYSxHQUFHLE9BQU8sQ0FBRSxrQkFBa0IsQ0FBRyxDQUFBO0FBQ3BELE1BQU0sc0JBQXNCLEdBQUcsT0FBTyxDQUFDLGdCQUFnQixDQUFDLENBQUE7QUFDeEQsTUFBTSxjQUFjLEdBQUksT0FBTyxDQUFLLDBCQUEwQixDQUFDLENBQUE7QUFFL0QsTUFBYSxhQUFhO0lBQ3hCLFlBQTZCLFVBQXNCO1FBQXRCLGVBQVUsR0FBVixVQUFVLENBQVk7SUFBRyxDQUFDO0lBR3ZELEdBQUc7UUFDRCxPQUFPLG9CQUFvQixDQUFDO0lBQzlCLENBQUM7Q0FDRjtBQUhDO0lBREMsa0JBQWtCOzs7O3dDQUdsQjtBQU5ILHNDQU9DIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7IENvbXBvbmVudCB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IHdpdGhSb3V0ZXIgfSBmcm9tICdyZWFjdC1yb3V0ZXItZG9tJztcbmltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCc7XG5pbXBvcnQgeyBzb21ldGhpbmcgfSBmcm9tICdAc29tZS1tb2R1bGUvYW55dGhpbmcnO1xuaW1wb3J0IHsgZm9vLCBiYXIsIGZvb0JhciB9IGZyb20gJ2Zvby1iYXInO1xuaW1wb3J0IHsgYW5vdGhlclRoaW5nIH0gZnJvbSAnQGFub3RoZXItbW9kdWxlL3NvbWV0aGluZyc7XG5pbXBvcnQgUmVhY3QsIHsgQ29tcG9uZW50IH0gZnJvbSAncmVhY3QnXG5pbXBvcnQgeyB3aXRoUm91dGVyIH0gZnJvbSAncmVhY3Qtcm91dGVyLWRvbSdcbmltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCdcbmltcG9ydCB7IHNvbWV0aGluZyB9IGZyb20gXCJAc29tZS1tb2R1bGUvYW55dGhpbmdcIlxuaW1wb3J0IHsgXG4gICAgZm9vLCBcbiAgICBiYXIsIFxuICAgIGZvb0JhciBcbn0gZnJvbSAnZm9vLWJhcidcbmltcG9ydCB7IGFub3RoZXJUaGluZyB9IGZyb20gICAnQGFub3RoZXItbW9kdWxlL3NvbWV0aGluZydcblxuaW1wb3J0IHsgQ29udHJvbGxlciwgR2V0IH0gZnJvbSAnQG5lc3Rqcy9jb21tb24nO1xuXG5pbXBvcnQgeyBBcHBTZXJ2aWNlIH0gZnJvbSAnLi9hcHAuc2VydmljZSc7XG5cbmNvbnN0IGphdmFTY3JpcHRXYXkgPSByZXF1aXJlKCAnQGxlZ2FjeS9yZWdpc3RyeScgIClcbmNvbnN0IGphdmFTY3JpcHREb3VibGVRdW90ZXMgPSByZXF1aXJlKFwiQHNpbmdsZS9kb3VibGVcIilcbmNvbnN0IG1ha2luZ1RoaXNIYXJkID0gIHJlcXVpcmUgKCAgIFwiQHBsZWFzZS1pbnN0YWxsL3ByZXR0aWVyXCIpXG5cbmV4cG9ydCBjbGFzcyBBcHBDb250cm9sbGVyIHtcbiAgY29uc3RydWN0b3IocHJpdmF0ZSByZWFkb25seSBhcHBTZXJ2aWNlOiBBcHBTZXJ2aWNlKSB7fVxuXG4gIEBQYXJhbWxlc3NEZWNvcmF0b3JcbiAgdWdoKCkge1xuICAgIHJldHVybiBgTGlrZSB3ZSBuZWVkIHRoaXM/YDtcbiAgfVxufVxuIl19",
+  },
+  Object {
+    "contents": "\\"use strict\\";
+Object.defineProperty(exports, \\"__esModule\\", { value: true });
+exports.AppController = void 0;
+const tslib_1 = require(\\"tslib\\");
+const javaScriptWay = require('@legacy/registry');
+const javaScriptDoubleQuotes = require(\\"@single/double\\");
+const makingThisHard = require(\\"@please-install/prettier\\");
+class AppController {
+    constructor(appService) {
+        this.appService = appService;
+    }
+    itCanAllBeOneLine() { return 'Seriously?'; }
+}
+tslib_1.__decorate([
+    f,
+    g,
+    tslib_1.__metadata(\\"design:type\\", Function),
+    tslib_1.__metadata(\\"design:paramtypes\\", []),
+    tslib_1.__metadata(\\"design:returntype\\", void 0)
+], AppController.prototype, \\"itCanAllBeOneLine\\", null);
+exports.AppController = AppController;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29weS01LnRzLnRlc3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9tb2NrLXByb2plY3QvYXBwL3NyYy9jb3B5LTUudHMudGVzdCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBZUEsTUFBTSxhQUFhLEdBQUcsT0FBTyxDQUFFLGtCQUFrQixDQUFHLENBQUE7QUFDcEQsTUFBTSxzQkFBc0IsR0FBRyxPQUFPLENBQUMsZ0JBQWdCLENBQUMsQ0FBQTtBQUN4RCxNQUFNLGNBQWMsR0FBSSxPQUFPLENBQUssMEJBQTBCLENBQUMsQ0FBQTtBQUcvRCxNQUFhLGFBQWE7SUFDeEIsWUFBNkIsVUFBc0I7UUFBdEIsZUFBVSxHQUFWLFVBQVUsQ0FBWTtJQUFHLENBQUM7SUFFakQsaUJBQWlCLEtBQUssT0FBTyxZQUFZLENBQUEsQ0FBQyxDQUFDO0NBRWxEO0FBRk87SUFBTCxDQUFDO0lBQUUsQ0FBQzs7OztzREFBNEM7QUFIbkQsc0NBS0MiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QsIHsgQ29tcG9uZW50IH0gZnJvbSAncmVhY3QnXG5pbXBvcnQgeyB3aXRoUm91dGVyIH0gZnJvbSAncmVhY3Qtcm91dGVyLWRvbSdcbmltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCdcbmltcG9ydCB7IHNvbWV0aGluZyB9IGZyb20gXCJAc29tZS1tb2R1bGUvYW55dGhpbmdcIlxuaW1wb3J0IHsgXG4gICAgZm9vLCBcbiAgICBiYXIsIFxuICAgIGZvb0JhciBcbn0gZnJvbSAnZm9vLWJhcidcbmltcG9ydCB7IGFub3RoZXJUaGluZyB9IGZyb20gICAnQGFub3RoZXItbW9kdWxlL3NvbWV0aGluZydcblxuaW1wb3J0IHsgQ29udHJvbGxlciwgR2V0IH0gZnJvbSAnQG5lc3Rqcy9jb21tb24nO1xuXG5pbXBvcnQgeyBBcHBTZXJ2aWNlIH0gZnJvbSAnLi9hcHAuc2VydmljZSc7XG5cbmNvbnN0IGphdmFTY3JpcHRXYXkgPSByZXF1aXJlKCAnQGxlZ2FjeS9yZWdpc3RyeScgIClcbmNvbnN0IGphdmFTY3JpcHREb3VibGVRdW90ZXMgPSByZXF1aXJlKFwiQHNpbmdsZS9kb3VibGVcIilcbmNvbnN0IG1ha2luZ1RoaXNIYXJkID0gIHJlcXVpcmUgKCAgIFwiQHBsZWFzZS1pbnN0YWxsL3ByZXR0aWVyXCIpXG5cblxuZXhwb3J0IGNsYXNzIEFwcENvbnRyb2xsZXIge1xuICBjb25zdHJ1Y3Rvcihwcml2YXRlIHJlYWRvbmx5IGFwcFNlcnZpY2U6IEFwcFNlcnZpY2UpIHt9XG5cbiAgQGYgQGcgaXRDYW5BbGxCZU9uZUxpbmUoKSB7IHJldHVybiAnU2VyaW91c2x5PycgfVxuXG59Il19",
+  },
+  Object {
+    "contents": "\\"use strict\\";
+Object.defineProperty(exports, \\"__esModule\\", { value: true });
+exports.AppController = void 0;
+const javaScriptWay = require('@legacy/registry');
+const javaScriptDoubleQuotes = require(\\"@single/double\\");
+const makingThisHard = require(\\"@please-install/prettier\\");
+class AppController {
+    constructor(appService) {
+        this.appService = appService;
+        this.what = 'Is this even valid JS?';
+    }
+    getData() {
+        return this.appService.getData();
+    }
+}
+exports.AppController = AppController;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29weS02LnRzLnRlc3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9tb2NrLXByb2plY3QvYXBwL3NyYy9jb3B5LTYudHMudGVzdCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFlQSxNQUFNLGFBQWEsR0FBRyxPQUFPLENBQUUsa0JBQWtCLENBQUcsQ0FBQTtBQUNwRCxNQUFNLHNCQUFzQixHQUFHLE9BQU8sQ0FBQyxnQkFBZ0IsQ0FBQyxDQUFBO0FBQ3hELE1BQU0sY0FBYyxHQUFJLE9BQU8sQ0FBSywwQkFBMEIsQ0FBQyxDQUFBO0FBRy9ELE1BQWEsYUFBYTtJQUN4QixZQUE2QixVQUFzQjtRQUF0QixlQUFVLEdBQVYsVUFBVSxDQUFZO1FBUTdDLFNBQUksR0FBRyx3QkFBd0IsQ0FBQTtJQVJpQixDQUFDO0lBR3ZELE9BQU87UUFDTCxPQUFPLElBQUksQ0FBQyxVQUFVLENBQUMsT0FBTyxFQUFFLENBQUM7SUFDbkMsQ0FBQztDQU1GO0FBWkQsc0NBWUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QsIHsgQ29tcG9uZW50IH0gZnJvbSAncmVhY3QnXG5pbXBvcnQgeyB3aXRoUm91dGVyIH0gZnJvbSAncmVhY3Qtcm91dGVyLWRvbSdcbmltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCdcbmltcG9ydCB7IHNvbWV0aGluZyB9IGZyb20gXCJAc29tZS1tb2R1bGUvYW55dGhpbmdcIlxuaW1wb3J0IHsgXG4gICAgZm9vLCBcbiAgICBiYXIsIFxuICAgIGZvb0JhciBcbn0gZnJvbSAnZm9vLWJhcidcbmltcG9ydCB7IGFub3RoZXJUaGluZyB9IGZyb20gICAnQGFub3RoZXItbW9kdWxlL3NvbWV0aGluZydcblxuaW1wb3J0IHsgQ29udHJvbGxlciwgR2V0IH0gZnJvbSAnQG5lc3Rqcy9jb21tb24nO1xuXG5pbXBvcnQgeyBBcHBTZXJ2aWNlIH0gZnJvbSAnLi9hcHAuc2VydmljZSc7XG5cbmNvbnN0IGphdmFTY3JpcHRXYXkgPSByZXF1aXJlKCAnQGxlZ2FjeS9yZWdpc3RyeScgIClcbmNvbnN0IGphdmFTY3JpcHREb3VibGVRdW90ZXMgPSByZXF1aXJlKFwiQHNpbmdsZS9kb3VibGVcIilcbmNvbnN0IG1ha2luZ1RoaXNIYXJkID0gIHJlcXVpcmUgKCAgIFwiQHBsZWFzZS1pbnN0YWxsL3ByZXR0aWVyXCIpXG5cblxuZXhwb3J0IGNsYXNzIEFwcENvbnRyb2xsZXIge1xuICBjb25zdHJ1Y3Rvcihwcml2YXRlIHJlYWRvbmx5IGFwcFNlcnZpY2U6IEFwcFNlcnZpY2UpIHt9XG5cbiAgXG4gIGdldERhdGEoKSB7XG4gICAgcmV0dXJuIHRoaXMuYXBwU2VydmljZS5nZXREYXRhKCk7XG4gIH1cblxuXG4gIGNvbnN0IHdoYXQgPSAnSXMgdGhpcyBldmVuIHZhbGlkIEpTPydAZGVjb3JhdGVUaGlzIGZuKClcbiAgXG5cbn0iXX0=",
+  },
+  Object {
+    "contents": "\\"use strict\\";
+Object.defineProperty(exports, \\"__esModule\\", { value: true });
+exports.AppController = void 0;
+const javaScriptWay = require('@legacy/registry');
+const javaScriptDoubleQuotes = require(\\"@single/double\\");
+const makingThisHard = require(\\"@please-install/prettier\\");
+class AppController {
+    constructor(appService) {
+        this.appService = appService;
+        this.probablyNot = 'I would hope this isadfasdfdsfa';
+    }
+    getData() {
+        return this.appService.getData();
+    }
+    ugh() {
+        return \`Like we need this?\`;
+    }
+}
+exports.AppController = AppController;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29weS03LnRzLnRlc3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9tb2NrLXByb2plY3QvYXBwL3NyYy9jb3B5LTcudHMudGVzdCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFlQSxNQUFNLGFBQWEsR0FBRyxPQUFPLENBQUUsa0JBQWtCLENBQUcsQ0FBQTtBQUNwRCxNQUFNLHNCQUFzQixHQUFHLE9BQU8sQ0FBQyxnQkFBZ0IsQ0FBQyxDQUFBO0FBQ3hELE1BQU0sY0FBYyxHQUFJLE9BQU8sQ0FBSywwQkFBMEIsQ0FBQyxDQUFBO0FBRy9ELE1BQWEsYUFBYTtJQUN4QixZQUE2QixVQUFzQjtRQUF0QixlQUFVLEdBQVYsVUFBVSxDQUFZO1FBVTdDLGdCQUFXLEdBQUcsaUNBQWlDLENBQUE7SUFWQyxDQUFDO0lBR3ZELE9BQU87UUFDTCxPQUFPLElBQUksQ0FBQyxVQUFVLENBQUMsT0FBTyxFQUFFLENBQUM7SUFDbkMsQ0FBQztJQUVELEdBQUc7UUFDQSxPQUFPLG9CQUFvQixDQUFDO0lBQy9CLENBQUM7Q0FHRjtBQWJELHNDQWFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7IENvbXBvbmVudCB9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHsgd2l0aFJvdXRlciB9IGZyb20gJ3JlYWN0LXJvdXRlci1kb20nXG5pbXBvcnQgeyBjb25uZWN0IH0gZnJvbSAncmVhY3QtcmVkdXgnXG5pbXBvcnQgeyBzb21ldGhpbmcgfSBmcm9tIFwiQHNvbWUtbW9kdWxlL2FueXRoaW5nXCJcbmltcG9ydCB7IFxuICAgIGZvbywgXG4gICAgYmFyLCBcbiAgICBmb29CYXIgXG59IGZyb20gJ2Zvby1iYXInXG5pbXBvcnQgeyBhbm90aGVyVGhpbmcgfSBmcm9tICAgJ0Bhbm90aGVyLW1vZHVsZS9zb21ldGhpbmcnXG5cbmltcG9ydCB7IENvbnRyb2xsZXIsIEdldCB9IGZyb20gJ0BuZXN0anMvY29tbW9uJztcblxuaW1wb3J0IHsgQXBwU2VydmljZSB9IGZyb20gJy4vYXBwLnNlcnZpY2UnO1xuXG5jb25zdCBqYXZhU2NyaXB0V2F5ID0gcmVxdWlyZSggJ0BsZWdhY3kvcmVnaXN0cnknICApXG5jb25zdCBqYXZhU2NyaXB0RG91YmxlUXVvdGVzID0gcmVxdWlyZShcIkBzaW5nbGUvZG91YmxlXCIpXG5jb25zdCBtYWtpbmdUaGlzSGFyZCA9ICByZXF1aXJlICggICBcIkBwbGVhc2UtaW5zdGFsbC9wcmV0dGllclwiKVxuXG5cbmV4cG9ydCBjbGFzcyBBcHBDb250cm9sbGVyIHtcbiAgY29uc3RydWN0b3IocHJpdmF0ZSByZWFkb25seSBhcHBTZXJ2aWNlOiBBcHBTZXJ2aWNlKSB7fVxuXG5cbiAgZ2V0RGF0YSgpIHtcbiAgICByZXR1cm4gdGhpcy5hcHBTZXJ2aWNlLmdldERhdGEoKTtcbiAgfVxuXG4gIHVnaCgpIHtcbiAgICAgcmV0dXJuIGBMaWtlIHdlIG5lZWQgdGhpcz9gO1xuICB9XG4gIGNvbnN0IHByb2JhYmx5Tm90ID0gJ0kgd291bGQgaG9wZSB0aGlzIGlzYWRmYXNkZmRzZmEnQGNyYXp5U2l0dWF0aW9uIGZuKClcblxufSJdfQ==",
+  },
+  Object {
+    "contents": "\\"use strict\\";
+Object.defineProperty(exports, \\"__esModule\\", { value: true });
+exports.AppController = void 0;
+const tslib_1 = require(\\"tslib\\");
+const javaScriptWay = require('@legacy/registry');
+const javaScriptDoubleQuotes = require(\\"@single/double\\");
+const makingThisHard = require(\\"@please-install/prettier\\");
+class AppController {
+    constructor(appService) {
+        this.appService = appService;
+        this.what = 'Is this even valid JS?';
+        this.probablyNot = 'I would hope this isadfasdfdsfa';
+        this.butThisIsValid = \\"Stuff all on one line\\";
+    }
+    getData() {
+        return this.appService.getData();
+    }
+    ugh() {
+        return \`Like we need this?\`;
+    }
+    itCanAllBeOneLine() { return 'Seriously?'; }
+}
+tslib_1.__decorate([
+    deckTheHalls(),
+    Second,
+    tslib_1.__metadata(\\"design:type\\", Object)
+], AppController.prototype, \\"decoratedObject\\", void 0);
+exports.AppController = AppController;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29weS04LnRzLnRlc3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9tb2NrLXByb2plY3QvYXBwL3NyYy9jb3B5LTgudHMudGVzdCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBZUEsTUFBTSxhQUFhLEdBQUcsT0FBTyxDQUFFLGtCQUFrQixDQUFHLENBQUE7QUFDcEQsTUFBTSxzQkFBc0IsR0FBRyxPQUFPLENBQUMsZ0JBQWdCLENBQUMsQ0FBQTtBQUN4RCxNQUFNLGNBQWMsR0FBSSxPQUFPLENBQUssMEJBQTBCLENBQUMsQ0FBQTtBQUcvRCxNQUFhLGFBQWE7SUFDeEIsWUFBNkIsVUFBc0I7UUFBdEIsZUFBVSxHQUFWLFVBQVUsQ0FBWTtRQWU3QyxTQUFJLEdBQUcsd0JBQXdCLENBQUE7UUFDL0IsZ0JBQVcsR0FBRyxpQ0FBaUMsQ0FBQTtRQUUvQyxtQkFBYyxHQUFHLHVCQUF1QixDQUFDO0lBbEJPLENBQUM7SUFHdkQsT0FBTztRQUNMLE9BQU8sSUFBSSxDQUFDLFVBQVUsQ0FBQyxPQUFPLEVBQUUsQ0FBQztJQUNuQyxDQUFDO0lBSUQsR0FBRztRQUNBLE9BQU8sb0JBQW9CLENBQUM7SUFDL0IsQ0FBQztJQUVELGlCQUFpQixLQUFLLE9BQU8sWUFBWSxDQUFBLENBQUMsQ0FBQztDQU81QztBQUZ3RTtJQUF2QixZQUFZLEVBQUU7SUFBRSxNQUFNOztzREFBZ0I7QUFuQnhGLHNDQXFCQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCwgeyBDb21wb25lbnQgfSBmcm9tICdyZWFjdCdcbmltcG9ydCB7IHdpdGhSb3V0ZXIgfSBmcm9tICdyZWFjdC1yb3V0ZXItZG9tJ1xuaW1wb3J0IHsgY29ubmVjdCB9IGZyb20gJ3JlYWN0LXJlZHV4J1xuaW1wb3J0IHsgc29tZXRoaW5nIH0gZnJvbSBcIkBzb21lLW1vZHVsZS9hbnl0aGluZ1wiXG5pbXBvcnQgeyBcbiAgICBmb28sIFxuICAgIGJhciwgXG4gICAgZm9vQmFyIFxufSBmcm9tICdmb28tYmFyJ1xuaW1wb3J0IHsgYW5vdGhlclRoaW5nIH0gZnJvbSAgICdAYW5vdGhlci1tb2R1bGUvc29tZXRoaW5nJ1xuXG5pbXBvcnQgeyBDb250cm9sbGVyLCBHZXQgfSBmcm9tICdAbmVzdGpzL2NvbW1vbic7XG5cbmltcG9ydCB7IEFwcFNlcnZpY2UgfSBmcm9tICcuL2FwcC5zZXJ2aWNlJztcblxuY29uc3QgamF2YVNjcmlwdFdheSA9IHJlcXVpcmUoICdAbGVnYWN5L3JlZ2lzdHJ5JyAgKVxuY29uc3QgamF2YVNjcmlwdERvdWJsZVF1b3RlcyA9IHJlcXVpcmUoXCJAc2luZ2xlL2RvdWJsZVwiKVxuY29uc3QgbWFraW5nVGhpc0hhcmQgPSAgcmVxdWlyZSAoICAgXCJAcGxlYXNlLWluc3RhbGwvcHJldHRpZXJcIilcblxuXG5leHBvcnQgY2xhc3MgQXBwQ29udHJvbGxlciB7XG4gIGNvbnN0cnVjdG9yKHByaXZhdGUgcmVhZG9ubHkgYXBwU2VydmljZTogQXBwU2VydmljZSkge31cblxuXG4gIGdldERhdGEoKSB7XG4gICAgcmV0dXJuIHRoaXMuYXBwU2VydmljZS5nZXREYXRhKCk7XG4gIH1cblxuXG5cbiAgdWdoKCkge1xuICAgICByZXR1cm4gYExpa2Ugd2UgbmVlZCB0aGlzP2A7XG4gIH1cblxuICBpdENhbkFsbEJlT25lTGluZSgpIHsgcmV0dXJuICdTZXJpb3VzbHk/JyB9XG5cbiAgY29uc3Qgd2hhdCA9ICdJcyB0aGlzIGV2ZW4gdmFsaWQgSlM/J2ZuKClcbiAgY29uc3QgcHJvYmFibHlOb3QgPSAnSSB3b3VsZCBob3BlIHRoaXMgaXNhZGZhc2RmZHNmYSdmbigpXG5cbiAgY29uc3QgYnV0VGhpc0lzVmFsaWQgPSBcIlN0dWZmIGFsbCBvbiBvbmUgbGluZVwiO0BkZWNrVGhlSGFsbHMoKSBAU2Vjb25kIGRlY29yYXRlZE9iamVjdFxuXG59Il19",
+  },
+  Object {
+    "contents": "\\"use strict\\";
+Object.defineProperty(exports, \\"__esModule\\", { value: true });
+exports.AppController = void 0;
+const tslib_1 = require(\\"tslib\\");
+const javaScriptWay = require('@legacy/registry');
+const javaScriptDoubleQuotes = require(\\"@single/double\\");
+const makingThisHard = require(\\"@please-install/prettier\\");
+class AppController {
+    constructor(appService) {
+        this.appService = appService;
+    }
+}
+tslib_1.__decorate([
+    Decorators.can.be.part.of.objects(),
+    tslib_1.__metadata(\\"design:type\\", Object)
+], AppController.prototype, \\"class\\", void 0);
+exports.AppController = AppController;
+{ }
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29weS05LnRzLnRlc3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9tb2NrLXByb2plY3QvYXBwL3NyYy9jb3B5LTkudHMudGVzdCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBZUEsTUFBTSxhQUFhLEdBQUcsT0FBTyxDQUFFLGtCQUFrQixDQUFHLENBQUE7QUFDcEQsTUFBTSxzQkFBc0IsR0FBRyxPQUFPLENBQUMsZ0JBQWdCLENBQUMsQ0FBQTtBQUN4RCxNQUFNLGNBQWMsR0FBSSxPQUFPLENBQUssMEJBQTBCLENBQUMsQ0FBQTtBQUcvRCxNQUFhLGFBQWE7SUFDeEIsWUFBNkIsVUFBc0I7UUFBdEIsZUFBVSxHQUFWLFVBQVUsQ0FBWTtJQUFHLENBQUM7Q0FHeEM7QUFBZjtJQURDLFVBQVUsQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLElBQUksQ0FBQyxFQUFFLENBQUMsT0FBTyxFQUFFOzs0Q0FDL0I7QUFKUCxzQ0FJaUI7QUFBQyxHQUFFIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7IENvbXBvbmVudCB9IGZyb20gJ3JlYWN0J1xuaW1wb3J0IHsgd2l0aFJvdXRlciB9IGZyb20gJ3JlYWN0LXJvdXRlci1kb20nXG5pbXBvcnQgeyBjb25uZWN0IH0gZnJvbSAncmVhY3QtcmVkdXgnXG5pbXBvcnQgeyBzb21ldGhpbmcgfSBmcm9tIFwiQHNvbWUtbW9kdWxlL2FueXRoaW5nXCJcbmltcG9ydCB7XG4gICAgZm9vLFxuICAgIGJhcixcbiAgICBmb29CYXJcbn0gZnJvbSAnZm9vLWJhcidcbmltcG9ydCB7IGFub3RoZXJUaGluZyB9IGZyb20gICAnQGFub3RoZXItbW9kdWxlL3NvbWV0aGluZydcblxuaW1wb3J0IHsgQ29udHJvbGxlciwgR2V0IH0gZnJvbSAnQG5lc3Rqcy9jb21tb24nO1xuXG5pbXBvcnQgeyBBcHBTZXJ2aWNlIH0gZnJvbSAnLi9hcHAuc2VydmljZSc7XG5cbmNvbnN0IGphdmFTY3JpcHRXYXkgPSByZXF1aXJlKCAnQGxlZ2FjeS9yZWdpc3RyeScgIClcbmNvbnN0IGphdmFTY3JpcHREb3VibGVRdW90ZXMgPSByZXF1aXJlKFwiQHNpbmdsZS9kb3VibGVcIilcbmNvbnN0IG1ha2luZ1RoaXNIYXJkID0gIHJlcXVpcmUgKCAgIFwiQHBsZWFzZS1pbnN0YWxsL3ByZXR0aWVyXCIpXG5cblxuZXhwb3J0IGNsYXNzIEFwcENvbnRyb2xsZXIge1xuICBjb25zdHJ1Y3Rvcihwcml2YXRlIHJlYWRvbmx5IGFwcFNlcnZpY2U6IEFwcFNlcnZpY2UpIHt9XG5cbiAgQERlY29yYXRvcnMuY2FuLmJlLnBhcnQub2Yub2JqZWN0cygpXG4gIGNsYXNzIFNvbWVDbGFzcyB7fVxuXG59XG4iXX0=",
+  },
+]
+`;
