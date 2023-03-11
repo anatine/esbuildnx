@@ -23,7 +23,7 @@ export interface EsbuildDecoratorsOptions {
   tsx?: boolean;
 }
 
-const { readFile } = promises
+const { readFile } = promises;
 
 const theFinder = new RegExp(
   /((?<![(\s]\s*['"])@\w[.[\]\w\d]*\s*(?![;])[((?=\s)])/
@@ -49,8 +49,8 @@ export const esbuildDecorators = (
     build.onLoad({ filter: tsx ? /\.tsx?$/ : /\.ts$/ }, async (args) => {
       if (!parsedTsConfig) {
         parsedTsConfig = parseTsConfig(tsconfigPath, cwd);
-        if (parsedTsConfig.options.sourcemap) {
-          parsedTsConfig.options.sourcemap = false;
+        if (parsedTsConfig.options.sourceMap) {
+          parsedTsConfig.options.sourceMap = false;
           parsedTsConfig.options.inlineSources = true;
           parsedTsConfig.options.inlineSourceMap = true;
         }
@@ -77,6 +77,7 @@ export const esbuildDecorators = (
       }
 
       const program = transpileModule(ts, {
+        fileName: args.path,
         compilerOptions: parsedTsConfig.options,
       });
       return { contents: program.outputText };

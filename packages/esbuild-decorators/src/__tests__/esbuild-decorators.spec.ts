@@ -51,8 +51,6 @@ describe(`plugin tests`, () => {
       )
     );
 
-    results.forEach((result) => {
-      expect(result).toBeDefined();
-    });
+    expect(results).toMatchSnapshot();
   });
 });
