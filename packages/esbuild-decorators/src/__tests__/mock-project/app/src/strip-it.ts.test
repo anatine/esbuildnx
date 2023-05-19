@@ -4,6 +4,8 @@ THIS_
 
 SHOULD_['This is a string used as a key']
 
+REALLY_ = ''
+
 /*
  * None of this should catch a @element in a comment.
  */

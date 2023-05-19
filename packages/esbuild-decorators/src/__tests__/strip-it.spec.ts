@@ -9,9 +9,11 @@ describe(`Strip It`, () => {
     );
 
     const result = strip(testFile)
-      .replace(/[:[\]\n]|\s*/g, '')
+      .replace(/[:=[\]\n]|\s*/g, '')
       .replace(/_/g, ' ');
 
-    expect(result).toEqual(`THIS SHOULD ALL BE WHAT'S LEFT OF THE ENTIRE FILE`);
+    expect(result).toEqual(
+      `THIS SHOULD REALLY ALL BE WHAT'S LEFT OF THE ENTIRE FILE`
+    );
   });
 });
