@@ -53,7 +53,7 @@ class TextBlock extends TextNode {
 
 const constants = {
   ESCAPED_CHAR_REGEX: /^\\./,
-  QUOTED_STRING_REGEX: /^(['"`])((?:\\.|[^\1])+?)(\1)/,
+  QUOTED_STRING_REGEX: /^(['"`])((?:\\.|[^\1])*?)(\1)/,
   NEWLINE_REGEX: /^\r*\n/,
   BLOCK_OPEN_REGEX: /^\/\*\*?(!?)/,
   BLOCK_CLOSE_REGEX: /^\*\/(\n?)/,
