@@ -31,7 +31,7 @@
   "dependencies": {
     "@anatine/esbuild-decorators": "^0.2.18",
     "@nrwl/devkit": "^12.9.0",
-    "@nrwl/workspace": "^12.9.0",
+    "@nrwl/workspace": "^14.2.0",
     "chalk": "^4.1.2",
     "date-fns": "^2.24.0",
     "fs-extra": "^10.0.0",
