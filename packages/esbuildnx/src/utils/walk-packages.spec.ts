@@ -24,7 +24,7 @@ describe('Walk Packages', () => {
     const searchDir = process.cwd();
     const result = await getPackagesToCopy(searchDir, [
       'ts-node',
-      '@nrwl/jest',
+      '@nx/jest',
       '@babel/core',
     ]);
     // console.log(inspect(result, false, 20, true));
@@ -36,7 +36,7 @@ describe('Walk Packages', () => {
     const searchDir = process.cwd();
     const modules = await getPackagesToCopy(searchDir, [
       'ts-node',
-      '@nrwl/jest',
+      '@nx/jest',
       '@babel/core',
     ]);
     const result = await copyPackages(

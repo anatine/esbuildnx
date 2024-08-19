@@ -1,8 +1,7 @@
 import { BuildExecutorSchema } from './schema';
-import { ExecutorContext } from '@nrwl/devkit';
+import { ExecutorContext, readJsonFile } from '@nrwl/devkit';
 import { normalizeBuildOptions } from '../../utils/normalize-options';
 import { pathExistsSync } from 'fs-extra';
-import { readJsonFile } from '@nrwl/workspace';
 import { build, BuildFailure, BuildOptions, BuildResult } from 'esbuild';
 import { spawn } from 'child_process';
 import { esbuildDecorators } from '@anatine/esbuild-decorators';
@@ -10,19 +9,19 @@ import { gray, green, red, yellow } from 'chalk';
 import watch from 'node-watch';
 import { Observable, OperatorFunction, Subject, zip } from 'rxjs';
 import { buffer, delay, filter, map, share } from 'rxjs/operators';
-import { eachValueFrom } from 'rxjs-for-await';
+
 import { format } from 'date-fns';
 // import { exportDiagnostics } from '../../utils/print-diagnostics';
 import { inspect } from 'util';
 import { copyPackages, getPackagesToCopy } from '../../utils/walk-packages';
 import { copyAssets } from '../../utils/assets';
 import { OUTFILE_NAME } from '../../utils/constants';
-import { NodeBuildEvent } from '@nrwl/node/src/executors/build/build.impl';
+import { eachValueFrom } from '@nx/devkit/src/utils/rxjs-for-await';
 
 export function buildExecutor(
   rawOptions: BuildExecutorSchema,
   context: ExecutorContext
-): AsyncIterableIterator<NodeBuildEvent> {
+): AsyncIterableIterator<any> {
   const { sourceRoot, root } = context.workspace.projects[context.projectName];
 
   if (!sourceRoot) {
@@ -73,12 +72,12 @@ export function buildExecutor(
     charset: 'utf8',
     color: true,
     conditions: options.watch ? ['development'] : ['production'],
-    watch: options.watch || false,
+
     absWorkingDir: options.root,
     plugins: [
       esbuildDecorators({
-        cwd: options.root,
-      }),
+        cwd: options.root
+      })
     ],
     // banner: {
     //   js: '// Compiled by esbuildnx ',
@@ -87,8 +86,7 @@ export function buildExecutor(
     entryPoints: [options.main],
     outdir,
     // outfile,
-    ...esbuildConfig,
-    incremental: options.watch || false,
+    ...esbuildConfig
   };
 
   let buildCounter = 1;
@@ -132,7 +130,7 @@ export function buildExecutor(
       buildCounter++;
       return {
         success: !buildFailure,
-        message,
+        message
       };
     })
   );
@@ -141,9 +139,8 @@ export function buildExecutor(
   const tscBufferTrigger = new Subject<boolean>();
   const tscSubscriber = runTsc({
     tsconfigPath: options.tsConfig,
-    watch: options.watch || !!esbuildOptions.watch,
     root: options.root,
-    useGlobal: false,
+    useGlobal: false
   }).pipe(
     map(({ info, error, end }) => {
       let message = '';
@@ -176,7 +173,7 @@ export function buildExecutor(
       // console.log(message);
       return {
         success: !values.find((value) => value.hasErrors),
-        message,
+        message
       };
     })
   );
@@ -190,7 +187,7 @@ export function buildExecutor(
       const message = result.error ?? result.copyResult;
       return {
         success: result.success,
-        message,
+        message
       };
     })
   );
@@ -226,7 +223,7 @@ export function buildExecutor(
           console.log(buildResults.message);
           return {
             success: buildResults?.success && tscResults?.success,
-            outfile,
+            outfile
           };
         })
       )
@@ -264,7 +261,7 @@ export function buildExecutor(
               tscResults?.success &&
               packageCopyResults.success &&
               assetCopyResults.success,
-            outfile,
+            outfile
           };
         }
       )
@@ -284,7 +281,7 @@ function runBuild(
   return new Observable<RunBuildResponse>((subscriber) => {
     const cwd = watchDir || options.absWorkingDir || process.cwd();
     // We will use the org watch settings with node-watch for better refresh performance
-    const { watch: buildWatch, ...opts } = options;
+    const { ...opts } = options;
 
     build(opts)
       .then((buildResult) => {
@@ -292,31 +289,11 @@ function runBuild(
         // Helper to send back data for watch events & supporting existing esbuild settings
         const watchNext = ({ buildFailure, buildResult }: RunBuildResponse) => {
           subscriber.next({ buildFailure, buildResult });
-          if (typeof buildWatch === 'object' && buildWatch.onRebuild) {
-            buildWatch.onRebuild(buildFailure, buildResult);
-          }
+
         };
-        // When in watch mode, it will continue to report back
-        if (buildWatch) {
-          watch(cwd, { recursive: true }, () => {
-            buildResult
-              .rebuild()
-              .then((watchResult) => {
-                watchNext({
-                  buildFailure: null,
-                  buildResult: watchResult,
-                });
-              })
-              .catch((watchFailure: BuildFailure) => {
-                watchNext({
-                  buildFailure: watchFailure,
-                  buildResult: null,
-                });
-              });
-          });
-        } else {
-          subscriber.complete();
-        }
+
+        subscriber.complete();
+
       })
       .catch((buildFailure: BuildFailure) => {
         subscriber.next({ buildResult: null, buildFailure });
@@ -370,7 +347,7 @@ function runTsc({ tsconfigPath, watch, root, useGlobal }: RunTscOptions) {
     });
     child.stdout.on('end', () => {
       subscriber.next({
-        info: `Type check complete. Found ${errorCount} errors`,
+        info: `Type check complete. Found ${errorCount} errors`
       });
     });
   });
@@ -393,14 +370,14 @@ function runCopyPackages(
       .then((directories) => {
         subscriber.next({
           copyResult: directories ?? [],
-          success: true,
+          success: true
         });
       })
       .catch((error) => {
         subscriber.next({
           copyResult: [],
           success: false,
-          error,
+          error
         });
       });
   });
@@ -420,7 +397,7 @@ function runCopyAssets(assets: string[], root: string, destination: string) {
       .catch((error) => {
         subscriber.next({
           success: false,
-          error,
+          error
         });
       });
   });
@@ -429,7 +406,7 @@ function runCopyAssets(assets: string[], root: string, destination: string) {
 function bufferUntil<T>(
   predicate: (value: T) => boolean
 ): OperatorFunction<T, T[]> {
-  return function (source) {
+  return function(source) {
     const share$ = source.pipe(share());
     const until$ = share$.pipe(filter(predicate), delay(0));
     return share$.pipe(buffer(until$));

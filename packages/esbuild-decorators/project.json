@@ -1,0 +1,33 @@
+{
+  "name": "esbuild-decorators",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/esbuild-decorators/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/esbuild-decorators/**/*.ts"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/packages/esbuild-decorators"],
+      "options": {
+        "jestConfig": "packages/esbuild-decorators/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/esbuild-decorators",
+        "tsConfig": "packages/esbuild-decorators/tsconfig.lib.json",
+        "packageJson": "packages/esbuild-decorators/package.json",
+        "main": "packages/esbuild-decorators/src/index.ts",
+        "assets": ["packages/esbuild-decorators/*.md"]
+      }
+    }
+  }
+}

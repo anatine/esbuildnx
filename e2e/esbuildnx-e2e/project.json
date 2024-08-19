@@ -1,0 +1,17 @@
+{
+  "name": "esbuildnx-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "e2e/esbuildnx-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/nx-plugin:e2e",
+      "options": {
+        "target": "esbuildnx:build",
+        "npmPackageName": "@anatine/esbuildnx",
+        "pluginOutputPath": "dist/packages/esbuildnx",
+        "jestConfig": "e2e/esbuildnx-e2e/jest.config.js"
+      }
+    }
+  }
+}

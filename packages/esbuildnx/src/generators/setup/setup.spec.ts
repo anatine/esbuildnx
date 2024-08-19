@@ -1,6 +1,6 @@
-import { readJson, readProjectConfiguration, Tree } from '@nrwl/devkit';
-import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
-import { applicationGenerator } from '@nrwl/node';
+import { readJson, readProjectConfiguration, Tree } from '@nx/devkit';
+import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
+import { applicationGenerator } from '@nx/node';
 import setupGenerator from './setup';
 
 describe('Setup', () => {
@@ -19,8 +19,8 @@ describe('Setup', () => {
 
     const esbuildConfig = readJson(tree, `${project.root}/esbuild.json`);
 
-    expect(project.root).toEqual(`apps/${name}`);
-    expect(project.targets.build.executor).toEqual('@nrwl/node:build');
+    expect(project.root).toEqual(`${name}`);
+    expect(project.targets.build.executor).toEqual('@nx/esbuild:esbuild');
     expect(project.targets.esbuild.executor).toEqual(
       '@anatine/esbuildnx:build'
     );
@@ -36,13 +36,13 @@ describe('Setup', () => {
 
     const esbuildConfig = readJson(tree, `${project.root}/esbuild.json`);
 
-    expect(project.root).toEqual(`apps/${name}`);
+    expect(project.root).toEqual(`${name}`);
     expect(project.targets.build.executor).toEqual('@anatine/esbuildnx:build');
     expect(project.targets.esbuild).toBeUndefined();
     expect(esbuildConfig.platform).toEqual('node');
   });
 
-  it('Should add in default @nrwl/nest externals', async () => {
+  it('Should add in default @nx/nest externals', async () => {
     const name = 'test-app-nest';
     await applicationGenerator(tree, { name });
     await setupGenerator(tree, { name, defaultNestExternals: true });

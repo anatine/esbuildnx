@@ -1,0 +1,51 @@
+{
+  "name": "esbuildnx",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/esbuildnx/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/esbuildnx/**/*.ts"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/packages/esbuildnx"],
+      "options": {
+        "jestConfig": "packages/esbuildnx/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/esbuildnx",
+        "tsConfig": "packages/esbuildnx/tsconfig.lib.json",
+        "packageJson": "packages/esbuildnx/package.json",
+        "main": "packages/esbuildnx/src/index.ts",
+        "assets": [
+          "packages/esbuildnx/*.md",
+          {
+            "input": "./packages/esbuildnx/src",
+            "glob": "**/*.!(ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/esbuildnx",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./packages/esbuildnx",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

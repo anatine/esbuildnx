@@ -7,7 +7,7 @@ import {
   updateJson,
   updateProjectConfiguration,
   writeJson,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 import { Schema } from './schema';
 import { dependencies, devDependencies } from '../../dependencies';
 import type { BuildOptions } from 'esbuild';
@@ -24,7 +24,7 @@ export async function setupGenerator(host: Tree, options: Schema) {
     (!currentBuild.options?.tsConfig && !currentBuild.options?.tsconfig)
   ) {
     throw new Error(
-      `There is no existing build target or this is not not a @nrwl/node project`
+      `There is no existing build target or this is not not a @nx/node project`
     );
   }
 

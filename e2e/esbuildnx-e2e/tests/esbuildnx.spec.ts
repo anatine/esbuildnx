@@ -37,7 +37,7 @@ describe('esbuildnx e2e', () => {
     const plugin = uniq('esbuildnx');
 
     console.log(`Generating temp project`);
-    await runNxCommandAsync(`generate @nrwl/node:application ${plugin}`);
+    await runNxCommandAsync(`generate @nx/node:application ${plugin}`);
 
     console.log(`Running esbuild setup on new project`);
     // Setup the node project
@@ -46,7 +46,7 @@ describe('esbuildnx e2e', () => {
     );
     const esbuildFile = `${tmpProjPath()}/apps/${plugin}/esbuild.json`;
     const esbuildOptions = await readJson(esbuildFile);
-    esbuildOptions.external = ['@nrwl/jest'];
+    esbuildOptions.external = ['@nx/jest'];
     console.log(
       `Updating file: ${esbuildFile} with ${inspect(
         esbuildOptions,

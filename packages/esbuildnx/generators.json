@@ -6,7 +6,7 @@
     "setup": {
       "factory": "./src/generators/setup/setup",
       "schema": "./src/generators/setup/schema.json",
-      "description": "esbuildnx setup on existing @nrwl/node project"
+      "description": "esbuildnx setup on existing @nx/node project"
     }
   }
 }

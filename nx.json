@@ -1,8 +1,4 @@
 {
-  "npmScope": "anatine",
-  "affected": {
-    "defaultBase": "main"
-  },
   "implicitDependencies": {
     "workspace.json": "*",
     "package.json": {
@@ -16,10 +12,8 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
+      "runner": "@nx/workspace/tasks-runners/default",
+      "options": {}
     }
   },
   "projects": {
@@ -45,5 +39,20 @@
         "projects": "dependencies"
       }
     ]
-  }
+  },
+  "targetDefaults": {
+    "build": {
+      "cache": true
+    },
+    "lint": {
+      "cache": true
+    },
+    "test": {
+      "cache": true
+    },
+    "e2e": {
+      "cache": true
+    }
+  },
+  "defaultBase": "main"
 }

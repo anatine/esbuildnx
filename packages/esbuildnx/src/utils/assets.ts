@@ -1,4 +1,4 @@
-import { logger } from '@nrwl/devkit';
+import { logger } from '@nx/devkit';
 import { copy } from 'fs-extra';
 import * as glob from 'glob';
 import { basename, join } from 'path';
