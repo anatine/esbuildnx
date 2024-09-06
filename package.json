@@ -68,7 +68,7 @@
     "typescript": "4.6.3"
   },
   "dependencies": {
-    "@google-cloud/logging-winston": "^4.2.2",
+    "@google-cloud/logging-winston": "^6.0.0",
     "recursive-copy": "^2.0.14"
   }
 }
