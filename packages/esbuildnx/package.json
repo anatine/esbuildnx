@@ -30,13 +30,13 @@
   "builders": "../../@nrwl/node/builders.json",
   "dependencies": {
     "@anatine/esbuild-decorators": "^0.2.18",
-    "@nrwl/devkit": "^12.9.0",
-    "@nrwl/workspace": "^12.9.0",
+    "@nrwl/devkit": "^16.0.0",
+    "@nrwl/workspace": "^16.0.0",
     "chalk": "^4.1.2",
     "date-fns": "^2.24.0",
     "fs-extra": "^10.0.0",
     "node-watch": "^0.7.2",
-    "recursive-copy": "^2.0.13",
+    "recursive-copy": "^2.0.14",
     "rxjs": "^6.6.7",
     "rxjs-for-await": "^0.0.2"
   },
